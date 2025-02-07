@@ -34,7 +34,7 @@
     }
   ],
   "navigation": {
-      "tabs": [
+    "tabs": [
     {
       "group": "Getting Started",
       "pages": [
@@ -44,19 +44,6 @@
     {
       "group": "Using Natalia",
       "pages": [
-        {
-          "group": "Email Integration",
-          "pages": [
-            "using-natalia/email/setup"
-          ]
-        },
-        {
-          "group": "Dashboard",
-          "pages": [
-            "using-natalia/dashboard/overview",
-            "using-natalia/dashboard/scenarios"
-          ]
-        },
         {
           "group": "Scenarios",
           "pages": [
@@ -73,6 +60,10 @@
       ]
     }
   ],
+  "footer": {
+    "message": "© 2025 Natalia"
+  }
+}
   "footerSocials": {
     "linkedin": "https://linkedin.com/company/105802460"
   },

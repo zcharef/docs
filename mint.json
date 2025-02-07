@@ -33,7 +33,8 @@
       "url": "docs"
     }
   ],
-  "navigation": [
+  "navigation": {
+    "tabs": [
     {
       "group": "Getting Started",
       "pages": [
@@ -59,12 +60,7 @@
         {
           "group": "Scenarios",
           "pages": [
-            "using-natalia/scenarios/overview",
-            "using-natalia/scenarios/descriptions",
-            "using-natalia/scenarios/instructions",
-            "using-natalia/scenarios/connectors",
-            "using-natalia/scenarios/prompting",
-            "using-natalia/scenarios/examples"
+            "using-natalia/scenarios"
           ]
         },
         {
@@ -79,5 +75,9 @@
   ],
   "footerSocials": {
     "linkedin": "https://linkedin.com/company/105802460"
-  }
+  },
+      "footer": {
+        "message": "© 2024 Natalia"
+      }
+    }
 }
