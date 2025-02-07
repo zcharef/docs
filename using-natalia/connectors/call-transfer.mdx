@@ -6,28 +6,15 @@ icon: 'phone'
 
 ## Overview
 
-The call transfer connector enables Natalia to seamlessly transfer calls to human agents when needed, ensuring a smooth transition and preserving conversation context.
+The call transfer connector helps Natalia transfer calls to human agents when needed. It's designed to be simple to set up while providing flexible routing options.
 
-## Key Features
+## Important Note
 
-### 1. Smart Routing
-- Automatically identifies when human intervention is needed
-- Routes calls to appropriate departments
-- Transfers context and conversation history
+All configuration settings you define here will be automatically added to Natalia's training sheet (main prompt). This means Natalia will naturally understand when and how to transfer calls based on your settings.
 
-### 2. Availability Check
-- Checks agent availability in real-time
-- Manages queue distribution
-- Handles after-hours routing
+## Setting Up Transfers
 
-### 3. Context Preservation
-- Transfers full conversation history
-- Includes customer details and issue summary
-- Preserves any collected information
-
-## Configuration
-
-### Basic Setup
+### Basic Configuration
 
 ```yaml
 transfer_rules:
@@ -43,42 +30,67 @@ transfer_rules:
     - type: "request"
       match: "speak_to_human"
       action: "transfer_to_available"
-
-  departments:
-    - name: "Technical Support"
-      available: "business_hours"
-      fallback: "voicemail"
-    
-    - name: "Customer Service"
-      available: "extended_hours"
-      fallback: "callback"
-
-  priorities:
-    - level: "urgent"
-      max_wait: 120
-      escalation: "supervisor"
 ```
+
+💡 This configuration is automatically added to Natalia's training sheet, so she'll understand these rules naturally.
+
+### Transfer Destinations
+
+Here's how to set up your transfer destinations:
+
+```html
+<transfer>
+  <agent>
+    <name>Alice - Default human</name>
+    <number>+1234567890</number>
+    <description>Main customer service representative</description>
+  </agent>
+  <agent>
+    <name>Support Team</name>
+    <number>+1987654321</number>
+    <description>Technical support team</description>
+  </agent>
+</transfer>
+```
+
+**Important Notes:**
+- The format must match exactly as shown above
+- The description can be anything you want - Natalia will understand it naturally
+- For example, if you put "Alice - Default human" in the description, Natalia will transfer to this number when:
+  - Someone asks for a human agent
+  - Someone specifically asks for Alice
+  - The situation requires human intervention
+
+## Connecting to Scenarios
+
+Remember to:
+1. Link this connector to any scenario where you want call transfers to be available
+2. Provide clear descriptions in your scenario settings - they're automatically added to Natalia's training
+3. Ensure your scenario description explains when transfers should occur
+
+💡 **Pro Tip**: The more detailed your descriptions, the better Natalia understands when to transfer calls.
 
 ## Best Practices
 
-### 1. Clear Communication
-- Inform customer about transfer
-- Explain reason for transfer
-- Set expectations for wait time
+### For Clear Communication
+- Inform customers when they're being transferred
+- Explain why a transfer is happening
+- Set expectations about wait times
 
-### 2. Smooth Handoff
-- Ensure agent availability before transfer
-- Pass complete context
-- Confirm successful transfer
+### For Smooth Handoffs
+- Verify agent availability before transfer
+- Ensure context is preserved
+- Confirm successful transfers
 
-### 3. Fallback Handling
+### For Better Handling
 - Define clear fallback procedures
 - Offer alternatives when needed
-- Maintain professional communication
+- Keep communication professional
 
-## Transfer Scenarios
+## Common Scenarios
 
 ### 1. Complex Issues
+When customer queries require specialized knowledge:
 ```yaml
 transfer_trigger:
   type: "complexity"
@@ -88,7 +100,19 @@ transfer_trigger:
     - historical_context_needed
 ```
 
-### 2. Emotional Support
+### 2. Customer Preference
+When customers specifically request:
+```yaml
+transfer_trigger:
+  type: "request"
+  conditions:
+    - ask_for_human
+    - mention_agent_name
+    - prefer_human_interaction
+```
+
+### 3. Emotional Support
+When situations require a personal touch:
 ```yaml
 transfer_trigger:
   type: "emotional"
@@ -98,46 +122,9 @@ transfer_trigger:
     - urgent_resolution_needed
 ```
 
-### 3. Technical Support
-```yaml
-transfer_trigger:
-  type: "technical"
-  conditions:
-    - system_error
-    - configuration_required
-    - security_related
-```
+## Remember
 
-## Implementation Tips
-
-1. **Set Clear Triggers**
-- Define specific conditions for transfers
-- Avoid unnecessary transfers
-- Document transfer criteria
-
-2. **Maintain Context**
-- Pass all relevant information
-- Include conversation history
-- Note any special requirements
-
-3. **Handle Edge Cases**
-- Plan for off-hours transfers
-- Define escalation paths
-- Prepare backup procedures
-
-## Testing and Optimization
-
-1. **Test Scenarios**
-- Verify transfer conditions
-- Check context preservation
-- Validate fallback procedures
-
-2. **Monitor Performance**
-- Track transfer success rates
-- Measure wait times
-- Analyze customer satisfaction
-
-3. **Continuous Improvement**
-- Gather agent feedback
-- Update transfer criteria
-- Optimize routing rules
+- All configurations are automatically added to Natalia's training
+- Be descriptive in your settings - Natalia understands natural language
+- Don't forget to link the connector to your scenarios
+- Test your transfer flows before going live
