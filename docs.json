@@ -1,8 +1,6 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
   "name": "Natalia Documentation",
-  "description": "Documentation for Natalia AI, your intelligent customer service assistant",
   "logo": {
     "light": "/logo/light.svg",
     "dark": "/logo/dark.svg",
@@ -12,53 +10,51 @@
   "colors": {
     "primary": "#16A34A",
     "light": "#07C983",
-    "dark": "#15803D"
-  },
-  "navigation": {
-    "tabs": [
-      {
-        "tab": "Documentation",
-        "groups": [
-          {
-            "group": "Getting Started",
-            "pages": [
-              "introduction",
-              "quickstart"
-            ]
-          },
-          {
-            "group": "Using Natalia",
-            "pages": [
-              "using-natalia/scenarios",
-              {
-                "group": "Connectors",
-                "pages": [
-                  "using-natalia/connectors/rest-api",
-                  "using-natalia/connectors/call-transfer"
-                ]
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  "navbar": {
-    "links": [
-      {
-        "label": "Support",
-        "href": "mailto:support@getnatalia.com"
-      }
-    ],
-    "primary": {
-      "type": "button",
-      "label": "Dashboard",
-      "href": "https://app.getnatalia.com"
+    "dark": "#15803D",
+    "background": {
+      "dark": "#090909",
+      "light": "#ffffff"
     }
   },
-  "footer": {
-    "socials": {
-      "linkedin": "https://linkedin.com/company/natalia-ai"
+  "topbarLinks": [
+    {
+      "name": "Support",
+      "url": "mailto:support@getnatalia.com"
     }
+  ],
+  "topbarCtaButton": {
+    "name": "Dashboard",
+    "url": "https://app.getnatalia.com"
+  },
+  "anchors": [
+    {
+      "name": "Documentation",
+      "icon": "book-open",
+      "url": "docs"
+    }
+  ],
+  "navigation": [
+    {
+      "group": "Getting Started",
+      "pages": [
+        "quickstart"
+      ]
+    },
+    {
+      "group": "Using Natalia",
+      "pages": [
+        "using-natalia/scenarios",
+        {
+          "group": "Connectors",
+          "pages": [
+            "using-natalia/connectors/rest-api",
+            "using-natalia/connectors/call-transfer"
+          ]
+        }
+      ]
+    }
+  ],
+  "footerSocials": {
+    "linkedin": "https://linkedin.com/company/natalia-ai"
   }
 }
