@@ -1,0 +1,197 @@
+---
+title: 'Creating Effective Natalia Scenarios'
+description: 'Learn how to create powerful and effective scenarios for Natalia'
+---
+
+## Introduction
+
+Natalia scenarios are the building blocks of your automated customer interactions. This guide will help you create effective scenarios that deliver exceptional customer experiences.
+
+## Best Practices for Scenario Creation
+
+### 1. Context Setting
+
+Always start your scenario with clear context:
+
+```yaml
+context:
+  role: "Customer Support Assistant"
+  company: "Your Company Name"
+  purpose: "Technical Support"
+  businessHours: "Monday-Thursday 8:30-12:30, 14:00-18:00, Friday 8:30-12:30, 14:00-17:00"
+```
+
+### 2. Personality Definition
+
+Define a consistent personality:
+- Professional yet warm
+- Solution-oriented
+- Empathetic but efficient
+- Clear and concise communication
+
+### 3. Response Structure
+
+Follow these guidelines for responses:
+- Keep messages brief and focused
+- One core message per response
+- Use confirmation statements
+- Avoid technical jargon unless appropriate
+
+Example:
+```yaml
+responses:
+  greeting: "Hello [name], I'm Natalia, your support assistant. How can I help you today?"
+  confirmation: "I understand you're experiencing [issue]. Let me help you with that."
+  closure: "Is there anything else you need assistance with?"
+```
+
+### 4. Conversation Flow
+
+Structure your conversation flow:
+
+1. **Welcome**
+- Personalized greeting
+- Clear introduction
+- Open-ended initial question
+
+2. **Qualification**
+- Identify issue type
+- Assess priority
+- Gather essential information
+
+3. **Action**
+- Clear acknowledgment
+- Specific actions taken
+- Progress updates
+
+4. **Closure**
+- Confirmation of resolution
+- Next steps if needed
+- Professional goodbye
+
+### 5. Priority Handling
+
+Define clear priority levels:
+```yaml
+priorities:
+  critical:
+    response: "Immediate escalation required"
+    action: "Transfer to available technician"
+  high:
+    response: "Priority handling required"
+    action: "Create urgent ticket"
+  normal:
+    response: "Standard handling"
+    action: "Create regular ticket"
+```
+
+### 6. Error Handling
+
+Implement robust error handling:
+```yaml
+errorHandling:
+  userNotFound:
+    response: "I couldn't find your information. Could you please spell your email address?"
+    action: "Verify user details"
+  systemError:
+    response: "I'm experiencing a technical issue. Let me transfer you to a human agent."
+    action: "Transfer call"
+```
+
+### 7. Security and Compliance
+
+Implement security measures:
+```yaml
+security:
+  identityVerification: "Always verify email and name"
+  sensitiveData: "Never display full account details"
+  dataProtection: "Comply with data protection regulations"
+```
+
+## Advanced Scenario Techniques
+
+### 1. Dynamic Content
+
+Use variables and dynamic content:
+```yaml
+message: "Hello ${user.name}, I see you're calling about ticket ${ticket.id}"
+```
+
+### 2. Conditional Responses
+
+Implement branching logic:
+```yaml
+if: "user.priority == 'VIP'"
+then: "Transfer to priority support"
+else: "Create standard ticket"
+```
+
+### 3. Multi-Turn Conversations
+
+Handle complex interactions:
+```yaml
+conversation:
+  - gather_info:
+      - ask_email
+      - confirm_email
+      - ask_issue
+      - confirm_understanding
+  - take_action:
+      - create_ticket
+      - confirm_creation
+```
+
+## Common Mistakes to Avoid
+
+1. **Over-Promising**
+- Don't guarantee specific response times
+- Avoid making technical commitments
+
+2. **Lack of Empathy**
+- Don't use robotic responses
+- Avoid dismissing user concerns
+
+3. **Information Overload**
+- Keep responses concise
+- Break complex information into digestible parts
+
+4. **Poor Error Handling**
+- Always have fallback responses
+- Gracefully handle unexpected inputs
+
+## Testing and Optimization
+
+1. **Scenario Testing**
+- Test with various user inputs
+- Verify all paths work as expected
+- Check error handling
+
+2. **Performance Monitoring**
+- Track successful interactions
+- Monitor transfer rates
+- Analyze user satisfaction
+
+3. **Continuous Improvement**
+- Regularly review scenarios
+- Update based on user feedback
+- Optimize for common cases
+
+## Best Practices Summary
+
+1. **Always**
+- Verify user identity
+- Confirm understanding
+- Keep responses professional
+- Follow security protocols
+
+2. **Never**
+- Share sensitive information
+- Make unrealistic promises
+- Ignore security protocols
+- Use technical jargon unnecessarily
+
+3. **Remember**
+- Stay within scope
+- Escalate when appropriate
+- Maintain consistent tone
+- Focus on user experience
