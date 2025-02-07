@@ -33,7 +33,8 @@
       "url": "docs"
     }
   ],
-  "navigation": [
+  "navigation": {
+      "tabs": [
     {
       "group": "Getting Started",
       "pages": [
@@ -56,7 +57,12 @@
             "using-natalia/dashboard/scenarios"
           ]
         },
-        "using-natalia/scenarios",
+        {
+          "group": "Scenarios",
+          "pages": [
+            "using-natalia/scenarios"
+          ]
+        },
         {
           "group": "Connectors",
           "pages": [
@@ -68,6 +74,10 @@
     }
   ],
   "footerSocials": {
-    "linkedin": "https://linkedin.com/company/natalia-ai"
-  }
+    "linkedin": "https://linkedin.com/company/105802460"
+  },
+      "footer": {
+        "message": "© 2025 Natalia"
+      }
+    }
 }

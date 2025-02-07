@@ -1,0 +1,98 @@
+---
+title: "Scenario Examples"
+description: "Practical examples of well-defined scenarios."
+icon: "list-check"
+---
+# Detailed Scenario Examples
+
+This page demonstrates how to structure and write effective scenarios, incorporating best practices and real-world situations.
+
+## Example 1: Order Issue Resolution
+
+**Name:** Order Issue Resolution
+**Description:** As Natalia, help customers with order problems, using the Order Management connector. Offer refunds or replacements and escalate if needed.
+
+**Natural Language Instructions (English)**
+
+```
+1. Greet the customer warmly and introduce yourself as Natalia.
+2. Ask about the order issue.
+3. Use the Order Management connector to find the order.
+4. If found, provide details and offer solutions (refund/replacement).
+5. If not found, ask to double-check information.
+6. Escalate to a human agent if the issue can't be resolved.
+7. End by confirming satisfaction.
+```
+
+**Natural Language Instructions (French)**
+
+```
+1. Accueillez chaleureusement le client et présentez-vous comme Natalia.
+2. Renseignez-vous sur le problème de commande.
+3. Utilisez le connecteur Gestion des Commandes pour trouver la commande.
+```yaml
+name: "Order Issue"
+description: "Assists customers with order issues."
+instructions:
+  - "Greet as Natalia."
+  - "Ask about the issue."
+  - "If order issue:"
+  - "  a. Use Order Management (number or name)."
+  - "  b. Determine the issue (item, delay)."
+  - "  c. Apologize."
+  - "  d. Offer solution (replacement, refund, expedited shipping)."
+  - "  e. Confirm details for replacements."
+  - "  f. Transfer if unresolved."
+  - "Ask if they need more help."
+  - "Thank them and end."
+connectors:
+  - Order Management
+communication_rules:
+  tone: "Empathetic and professional"
+  prohibited_phrases:
+    - "Please hold"
+    - "I don't know"
+```
+
+## Example 2: Product Information Request
+
+**Name:** Product Information Request
+**Description:** As Natalia, provide product information using the Product Catalog.  Offer recommendations and connect to sales if needed.
+
+**Natural Language Instructions (English)**
+
+```
+1. Greet the customer.
+2. Ask for the product name or SKU.
+3. Use the Product Catalog to retrieve details.
+4. Present the information.
+5. Offer personalized recommendations.
+6. Connect to a sales agent if the customer has additional questions.
+```
+
+**Natural Language Instructions (French)**
+
+```
+1. Accueillez le client.
+2. Demandez le nom ou la référence du produit.
+3. Utilisez le Catalogue Produits pour récupérer les détails.
+4. Présentez les informations.
+5. Proposez des recommandations personnalisées.
+6. Connectez à un agent commercial si besoin.
+```
+
+**Pro Prompting (YAML)**
+
+```yaml
+name: "Product Information Request"
+description: "Provides product information and recommendations."
+instructions:
+  - "Greet the customer."
+  - "Ask for product name/SKU."
+  - "Use Product Catalog for details."
+  - "Present information."
+  - "Offer recommendations."
+  - "Connect to sales if needed."
+connectors:
+  - Product Catalog
+```

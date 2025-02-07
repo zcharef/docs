@@ -6,7 +6,7 @@ icon: 'plug'
 
 ## Overview
 
-The REST API connector allows you to integrate external services with Natalia. Everything you configure here becomes part of Natalia's training sheet (main prompt), allowing her to naturally understand when and how to use these integrations.
+The REST API connector allows you to integrate external services and APIs with Natalia. This includes sending HTTP requests to any endpoint and using the responses within your Natalia scenarios. Everything you configure here becomes part of Natalia's training sheet (main prompt), allowing her to naturally understand when and how to use these integrations.
 
 ### Important Notes
 - All connector configurations are automatically added to Natalia's training
@@ -27,9 +27,10 @@ You can describe how and when Natalia should use the API in plain language. For 
 - "Crée un ticket de support quand le client a un problème technique"
 - "Recherche les informations du client quand il fournit son adresse email"
 
-## Configuration in Dashboard
 
-### Request Setup
+## Configuration in Dashboard and via YAML
+
+### Request Setup in Dashboard
 1. **Name and Description**
 - Give your connector a clear name
 - Provide a detailed description of its purpose
@@ -52,6 +53,57 @@ Describe parameters in natural language:
 - "La requête est la question ou demande du client, comme une question sur un produit ou des dimensions"
 - "Le numéro de référence est l'identifiant unique de la commande"
 - "L'email du client est utilisé pour rechercher son compte"
+
+
+### Request Configuration Details (applicable to both Dashboard and YAML)
+
+The REST API connector supports various request configurations:
+
+1. **HTTP Methods**
+- GET: Retrieve data
+- POST: Create data
+- PUT: Update data
+- PATCH: Partial updates
+
+2. **Headers**
+Add custom headers like authorization tokens or content types.
+
+3. **Parameters**
+Configure URL parameters and query strings.
+
+4. **Body**
+For POST/PUT/PATCH requests, define the request body structure:
+- Support for string, number, object, and array types
+- Nested object structures
+- Arrays of items
+
+#### Body Structure Example (JSON)
+
+```json
+{
+  "user": {
+    "type": "object",
+    "required": [
+      "name",
+      "email"
+    ],
+    "properties": {
+      "name": {
+        "type": "string",
+        "description": "User's name"
+      },
+      "email": {
+        "type": "string",
+        "description": "User's email address"
+      }
+    }
+  },
+  "description": {
+    "type": "string",
+    "description": "Request description"
+  }
+}
+```
 
 ## Common Use Cases
 
@@ -77,9 +129,9 @@ Describe parameters in natural language:
 - Les informations de suivi sont nécessaires
 - Les détails de la commande sont demandés"
 
-## Pro Prompting
+## Pro Prompting with YAML
 
-For those who prefer structured data, here's how the configuration looks in YAML format:
+For structured data representation, use YAML:
 
 ```yaml
 api_trigger:
@@ -117,6 +169,58 @@ query_conditions:
 - Use environment variables for sensitive data
 - Implement proper authentication
 - Follow least privilege principle
+
+4. **Error Handling**
+- Always include error responses in your API documentation
+- Test your connector with invalid inputs
+- Handle rate limits appropriately
+
+5. **Documentation**
+- Document the purpose of each field
+- Include example requests and responses
+- Note any dependencies or prerequisites
+
+
+## Using in Scenarios
+
+Once configured, you can use the REST API connector in your Natalia scenarios:
+
+1. Reference the connector by its name
+2. Pass required parameters
+3. Handle responses appropriately
+4. Implement error checking
+
+Example usage in a scenario (YAML):
+```yaml
+- name: "Create Ticket"
+  connector: "ticket-creator"
+  params:
+    user:
+      name: "John Doe"
+      email: "john@example.com"
+    description: "Need assistance with login"
+```
+
+## Troubleshooting
+
+Common issues and solutions:
+
+1. **Connection Errors**
+- Verify endpoint URL is correct
+- Check network connectivity
+- Validate authentication credentials
+
+2. **Invalid Responses**
+- Review request format
+- Check API documentation
+- Validate data types
+
+3. **Performance Issues**
+- Monitor response times
+- Implement caching where appropriate
+- Consider rate limiting
+
+
 
 ## Remember
 - All connector settings are automatically added to Natalia's training

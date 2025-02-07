@@ -1,68 +1,72 @@
 ---
 title: 'Quickstart'
 description: 'Get started with Natalia in minutes'
-icon: 'rocket'
 ---
 
-## Setup Your Natalia Assistant
+## Getting Started with Natalia
 
-Learn how to set up and configure your Natalia AI assistant in minutes.
+Transform your customer service with Natalia in three simple steps. No technical expertise required.
 
 ### Initial Setup
 
-<Steps>
-  <Step title="Create Your Account">
+<AccordionGroup>
+  <Accordion icon="user" title="Create Your Account">
     1. Visit [app.getnatalia.com](https://app.getnatalia.com)
     2. Click on "Sign Up"
     3. Fill in your business information
     4. Verify your email address
-  </Step>
+  </Accordion>
   
-  <Step title="Basic Configuration">
+  <Accordion icon="gear" title="Basic Configuration">
     1. Log into your dashboard
-    2. Configure company information
-    3. Define routing rules
-    4. Set up your scenarios
-  </Step>
+    2. Set your business hours
+       - Define your typical weekly schedule
+       - Customize hours for specific days or events
+    3. Configure company information
+    4. Define routing rules
+  </Accordion>
 
-  <Step title="Configure Communication">
+  <Accordion icon="phone" title="Configure Communication Channels">
     1. Set up phone numbers
     2. Configure email integration
     3. Test your setup
-  </Step>
-</Steps>
+  </Accordion>
+</AccordionGroup>
 
-## Create Your First Scenario
+## Creating Your First Scenario
 
 <Steps>
   <Step title="Access Scenarios">
     Navigate to the Scenarios section in your dashboard
   </Step>
-  
+  <Step title="Create New">
+    Click "Create New Scenario"
+  </Step>
   <Step title="Choose Type">
     Select from:
     - Call handling
     - Email management
     - Custom workflow
   </Step>
-  
-  <Step title="Configure Settings">
+  <Step title="Configure">
     Set up:
     - Greeting messages
     - Routing rules
     - Response templates
   </Step>
-  
-  <Step title="Test and Deploy">
-    1. Test thoroughly
-    2. Make adjustments
-    3. Deploy to production
+  <Step title="Test">
+    Test your scenario thoroughly
+  </Step>
+  <Step title="Deploy">
+    Deploy to production
   </Step>
 </Steps>
 
-## Connect Your Tools
+## Connecting Your Tools
 
-<CardGroup>
+Natalia integrates with your existing tools:
+
+<CardGroup cols={2}>
   <Card
     title="REST API Integration"
     icon="plug"
@@ -75,62 +79,73 @@ Learn how to set up and configure your Natalia AI assistant in minutes.
     icon="puzzle-piece"
     href="/using-natalia/connectors"
   >
-    Ready-to-use integrations
+    Odoo, Google Sheets, and more
   </Card>
 </CardGroup>
 
 ## Best Practices
 
+### Call Management
+- Configure business hours accurately
+- Set up appropriate greetings
+- Define clear routing rules
+- Establish escalation procedures
+
+### Scenario Creation
+- Start with simple scenarios
+- Test thoroughly before deployment
+- Monitor and adjust based on feedback
+- Gradually add complexity
+
+### Customer Experience
+- Keep messages clear and concise
+- Maintain a professional tone
+- Ensure smooth handoffs to human agents
+- Regular scenario updates
+
+## Next Steps
+
 <CardGroup>
-  <Card title="Call Management" icon="phone">
-    - Configure business hours
-    - Set up greetings
-    - Define routing rules
-    - Establish escalation procedures
+  <Card
+    title="Create Advanced Scenarios"
+    icon="wand-magic-sparkles"
+    href="/using-natalia/scenarios"
+  >
+    Learn to create powerful custom scenarios
   </Card>
-
-  <Card title="Scenario Creation" icon="wand-magic-sparkles">
-    - Start simple
-    - Test thoroughly
-    - Monitor and adjust
-    - Add complexity gradually
-  </Card>
-
-  <Card title="Customer Experience" icon="user">
-    - Clear communication
-    - Professional tone
-    - Smooth handoffs
-    - Regular updates
+  <Card
+    title="Integrate Your Tools"
+    icon="plug"
+    href="/using-natalia/connectors/rest-api"
+  >
+    Connect your existing systems
   </Card>
 </CardGroup>
 
-## Support Resources
+## Support and Resources
 
-<CardGroup>
-  <Card title="Email Support" icon="envelope">
-    Contact us at support@getnatalia.com
-  </Card>
-  <Card title="Documentation" icon="book">
-    Browse our guides and tutorials
-  </Card>
-</CardGroup>
+Need help? Our team is here to support you:
 
-## Common Questions
+- Email: support@getnatalia.com
+- Documentation: Browse our guides and tutorials
+- Customer Support: Available during business hours
 
-<Tabs>
-  <Tab title="Industry Adaptation">
-    Natalia adapts to your business domain through dashboard configurations and settings.
-  </Tab>
+### Common Questions
 
-  <Tab title="Complex Questions">
-    When needed, Natalia smoothly transfers conversations to human team members.
-  </Tab>
+<AccordionGroup>
+  <Accordion icon="building" title="Can Natalia adapt to specific industries?">
+    Absolutely. Natalia adapts to your business domain through dashboard configurations: company presentation, sales/welcome scripts, and sector-specific information for more relevant responses.
+  </Accordion>
 
-  <Tab title="Team Integration">
-    Natalia supports your team by handling routine tasks, allowing staff to focus on complex cases.
-  </Tab>
+  <Accordion icon="question" title="How does Natalia handle specific or unusual questions?">
+    Natalia knows her limits. When a request is outside her expertise, she smoothly transfers the conversation to a human team member, ensuring optimal customer care.
+  </Accordion>
 
-  <Tab title="Voice and Tone">
-    Natalia maintains a professional and warm tone that represents your company well.
-  </Tab>
-</Tabs>
+  <Accordion icon="users" title="Does Natalia replace human teams?">
+    No, Natalia is designed to support, not replace your teams. She handles repetitive tasks while allowing your staff to focus on complex requests.
+  </Accordion>
+
+  <Accordion icon="microphone" title="Can we customize Natalia's voice and tone?">
+    While voice customization is in development, Natalia maintains a professional and warm tone that represents your company well.
+  </Accordion>
+</AccordionGroup>

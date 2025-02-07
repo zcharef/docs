@@ -1,24 +1,12 @@
 ---
-## Important Notes About Scenarios
-
-### Connector Integration
-- Each scenario needs to be linked with its required connectors
-- Natalia is automatically aware of all connectors linked to a scenario
-- The scenario's description, name, and parameters are automatically added to Natalia's training sheet (main prompt)
-
-### Why Descriptions Matter
-- Write clear, detailed descriptions for your scenarios
-- Be specific about when and how connectors should be used
-- The more detailed your descriptions, the better Natalia understands your intent
-
-## Creating Your First Scenario
-description: 'Learn how to create powerful and effective scenarios for Natalia'
+title: 'Creating Effective Scenarios'
+description: 'Learn how to write powerful scenarios for Natalia'
 icon: 'wand-magic-sparkles'
 ---
 
 ## Introduction
 
-Natalia scenarios are the building blocks of your automated customer interactions. This guide will help you create effective scenarios that deliver exceptional customer experiences.
+Natalia scenarios are the building blocks of your automated customer interactions. This guide will help you create effective scenarios that deliver exceptional customer experiences.  Everything you configure in a scenario becomes part of Natalia's training, including the scenario description, name, selected connectors, and communication rules.
 
 ### Automatic Context Extraction
 
@@ -36,308 +24,258 @@ Natalia can automatically analyze your existing customer interactions to build e
 
 This automated analysis helps create scenarios that match your company's specific needs and communication style.
 
-## Best Practices for Scenario Creation
 
-### 1. Context Setting
+## Creating a New Scenario
 
-Always start your scenario with clear context:
+<Steps>
+  <Step title="Access Scenarios">
+    Click on "Scénarios" in the left sidebar menu
+  </Step>
+  
+  <Step title="Create New">
+    Click the "+" button to create a new scenario
+  </Step>
+  
+  <Step title="Basic Configuration">
+    Configure:
+    - Scenario name
+    - Description (important for Natalia's understanding)
+    - Type of interaction
+  </Step>
+</Steps>
 
-```yaml
-context:
-  role: "Customer Support Assistant"
-  company: "Your Company Name"
-  purpose: "Technical Support"
-  businessHours: "Monday-Thursday 8:30-12:30, 14:00-18:00, Friday 8:30-12:30, 14:00-17:00"
+
+## Writing Effective Descriptions
+
+Your scenario descriptions are crucial - they directly influence how Natalia behaves. Write them in natural language, just as you would explain to a human colleague.  Be specific and clear about the purpose of the scenario, the expected interactions, and the desired outcomes. The description you provide is automatically added to Natalia's training.
+
+<CardGroup>
+  <Card title="Be Clear and Specific" icon="pen">
+    Describe exactly when and how Natalia should handle conversations
+  </Card>
+  <Card title="Use Natural Language" icon="comments">
+    Write as if you're explaining to a person - Natalia understands context
+  </Card>
+  <Card title="Include Examples" icon="list-check">
+    Provide example situations to help Natalia understand
+  </Card>
+</CardGroup>
+
+## Scenario Types
+
+<CardGroup>
+  <Card title="Call Handling" icon="phone">
+    Configure how Natalia handles incoming calls:
+    - Greeting messages
+    - Call routing
+    - Transfer rules
+  </Card>
+  
+  <Card title="Email Management" icon="envelope">
+    Set up email response handling:
+    - Auto-responses
+    - Email routing
+    - Follow-up rules
+  </Card>
+  
+  <Card title="Custom Workflows" icon="diagram-project">
+    Create specialized scenarios for your needs:
+    - Multi-step processes
+    - Complex decision trees
+    - Custom integrations
+  </Card>
+</CardGroup>
+
+
+## Writing Instructions
+
+You can write instructions in natural language. For example:
+
+🇬🇧 English:
+```text
+When a customer calls:
+1. Greet them warmly and introduce yourself as Natalia
+2. Listen to their request and confirm your understanding
+3. Handle their request directly if possible
+4. If the request is too complex, politely transfer to a human agent
+5. Always end by confirming customer satisfaction
 ```
 
-### 2. Personality Definition
-
-Define a consistent personality:
-- Professional yet warm
-- Solution-oriented
-- Empathetic but efficient
-- Clear and concise communication
-
-### 3. Response Structure
-
-Follow these guidelines for responses:
-- Keep messages brief and focused
-- One core message per response
-- Use confirmation statements
-- Avoid technical jargon unless appropriate
-
-Example:
-```yaml
-responses:
-  greeting: "Hello [name], I'm Natalia, your support assistant. How can I help you today?"
-  confirmation: "I understand you're experiencing [issue]. Let me help you with that."
-  closure: "Is there anything else you need assistance with?"
+🇫🇷 French:
+```text
+Quand un client appelle :
+1. Accueillez-le chaleureusement et présentez-vous en tant que Natalia
+2. Écoutez sa demande et confirmez votre compréhension
+3. Traitez sa demande directement si possible
+4. Si la demande est trop complexe, transférez poliment vers un agent humain
+5. Terminez toujours en confirmant la satisfaction du client
 ```
 
-### 4. Conversation Flow
+## Linking Connectors
 
-Structure your conversation flow based on these principles:
+Connectors bridge Natalia with external tools and data, empowering her to access information, perform actions, and enhance customer interactions. Important: Don't forget to link relevant connectors to your scenario. Natalia will automatically understand how to use any connected tools based on their configurations.
 
-1. **Welcome**
-- Professional, warm greeting
-- Clear self-introduction as Natalia
-- Open question about assistance needed
+<Steps>
+  <Step title="Access Connectors">
+    Open your scenario settings and navigate to the Connectors section
+  </Step>
+  
+  <Step title="Select Connectors">
+    Choose the connectors needed for your scenario:
+    - REST API for custom integrations
+    - Call Transfer for human handoff
+    - More connectors coming soon
+  </Step>
+  
+  <Step title="Configure">
+    Set up each connector's specific settings.  Tell Natalia *when* to use each connector in natural language.  Explain *why* and *how* each connector contributes to the scenario.
+  </Step>
+</Steps>
 
-2. **Qualification**
-```yaml
-qualification:
-  steps:
-    - verify_identity:
-        required: ["name", "email"]
-        action: "spell_check"
-    
-    - assess_request:
-        type: ["issue", "inquiry", "service"]
-        priority: ["normal", "urgent", "critical"]
-    
-    - gather_details:
-        max_questions: 2
-        confirm_understanding: true
+## Key Principles for Connector Integration
+
+*   **Relevance:** Choose connectors aligned with the scenario's goal.
+*   **Configuration:** Ensure connectors are set up correctly with credentials and settings.
+*   **Clear Instructions:** Tell Natalia *when* to use each connector in natural language.
+*   **Thorough Testing:** Validate connector functionality within the scenario.
+*   **Purposeful Descriptions:** Explain *why* and *how* each connector contributes to the scenario.
+
+
+## Examples of Connector Integration within Scenarios
+
+### Order Management
+
+```
+1. Greet the customer as Natalia.
+2. Ask for their order number or email.
+3. Use the **Order Management connector** to find the order.
+4. Present order details (status, items, shipping, delivery).
+5. If the order isn't found, ask them to double-check the information.
+6. For order changes (returns, address updates), follow scenario steps.
 ```
 
-3. **Action**
-```yaml
-actions:
-  create_ticket:
-    required_fields:
-      - customer_name
-      - email
-      - issue_description
-    confirm: true
-    
-  transfer_call:
-    conditions:
-      - complexity_high
-      - customer_request
-      - technical_issue
-    preserve_context: true
+### Product Catalog
+
+```
+1. Greet the customer.
+2. Ask for the product name or SKU.
+3. Use the **Product Catalog connector** to find the product.
+4. Present details (price, availability, specs, images).
+5. If no product is found, suggest alternatives or connect to sales.
+6. For recommendations, use the connector's recommendation engine.
 ```
 
-4. **Closure**
-```yaml
-closure:
-  verify_satisfaction: true
-  next_steps:
-    - confirm_ticket_creation
-    - explain_follow_up
-    - provide_reference
-  farewell:
-    tone: "professional_warm"
-    include_availability: true
+### Knowledge Base
+
+```
+1. Greet the customer.
+2. Ask for a description of the technical issue.
+3. Use the **Knowledge Base connector** to search for solutions.
+4. Present articles and troubleshooting steps.
+5. If unresolved, create a support ticket and transfer to a tech agent.
 ```
 
-5. **Error Handling**
-```yaml
-error_handling:
-  unclear_request:
-    - clarify_with_examples
-    - max_attempts: 2
-    - transfer_if_failed: true
-    
-  system_error:
-    - apologize
-    - offer_alternative
-    - escalate_to_human
+### French Example - Gestion des Commandes
+
+```
+1. Saluez le client en tant que Natalia.
+2. Demandez le numéro de commande ou l'email.
+3. Utilisez le **connecteur Gestion des Commandes** pour trouver la commande.
+4. Présentez les détails (statut, articles, livraison).
+5. Si la commande est introuvable, demandez de vérifier les informations.
+6. Pour les modifications, suivez les étapes du scénario.
 ```
 
-### 5. Priority Handling
+<Note>
+Link all necessary connectors *before* activating your scenario.
+</Note>
 
-Define clear priority levels:
-```yaml
-priorities:
-  critical:
-    response: "Immediate escalation required"
-    action: "Transfer to available technician"
-  high:
-    response: "Priority handling required"
-    action: "Create urgent ticket"
-  normal:
-    response: "Standard handling"
-    action: "Create regular ticket"
-```
 
-### 6. Error Handling
+## Testing Your Scenario
 
-Implement robust error handling:
-```yaml
-errorHandling:
-  userNotFound:
-    response: "I couldn't find your information. Could you please spell your email address?"
-    action: "Verify user details"
-  systemError:
-    response: "I'm experiencing a technical issue. Let me transfer you to a human agent."
-    action: "Transfer call"
-```
+<Steps>
+  <Step title="Development Mode">
+    Test your scenario in development mode first
+  </Step>
+  
+  <Step title="Verify Responses">
+    Check that Natalia responds correctly to various inputs
+  </Step>
+  
+  <Step title="Deploy">
+    Once verified, deploy to production
+  </Step>
+</Steps>
 
-### 7. Security and Compliance
 
-Implement security measures:
-```yaml
-security:
-  identityVerification: "Always verify email and name"
-  sensitiveData: "Never display full account details"
-  dataProtection: "Comply with data protection regulations"
-```
+## Advanced Prompting (YAML)
 
-## Advanced Scenario Techniques
+YAML offers advanced control over scenario structure. For complex interactions, YAML's precision and readability are beneficial.
 
-### 1. Dynamic Content
+### Key Principles
 
-Use variables and dynamic content:
-```yaml
-message: "Hello ${user.name}, I see you're calling about ticket ${ticket.id}"
-```
+*   **YAML Syntax:**  Understand indentation, key-value pairs, and lists.
+*   **Key Elements:** Define `name`, `description`, `instructions`, and `connectors`.
+*   **Comments:** Explain each section and instruction.
+*   **Thorough Testing:** Validate YAML scenarios.
 
-### 2. Conditional Responses
-
-Implement branching logic:
-```yaml
-if: "user.priority == 'VIP'"
-then: "Transfer to priority support"
-else: "Create standard ticket"
-```
-
-### 3. Multi-Turn Conversations
-
-Handle complex interactions:
-```yaml
-conversation:
-  - gather_info:
-      - ask_email
-      - confirm_email
-      - ask_issue
-      - confirm_understanding
-  - take_action:
-      - create_ticket
-      - confirm_creation
-```
-
-## Common Mistakes to Avoid
-
-1. **Over-Promising**
-- Don't guarantee specific response times
-- Avoid making technical commitments
-
-2. **Lack of Empathy**
-- Don't use robotic responses
-- Avoid dismissing user concerns
-
-3. **Information Overload**
-- Keep responses concise
-- Break complex information into digestible parts
-
-4. **Poor Error Handling**
-- Always have fallback responses
-- Gracefully handle unexpected inputs
-
-## Testing and Optimization
-
-1. **Scenario Testing**
-- Test with various user inputs
-- Verify all paths work as expected
-- Check error handling
-
-2. **Performance Monitoring**
-- Track successful interactions
-- Monitor transfer rates
-- Analyze user satisfaction
-
-3. **Continuous Improvement**
-- Regularly review scenarios
-- Update based on user feedback
-- Optimize for common cases
-
-## Call Transfer Connector
-
-The call transfer connector enables Natalia to seamlessly transfer calls to human agents when needed.
-
-### Key Features
-
-1. **Smart Routing**
-- Automatically identifies when human intervention is needed
-- Routes calls to appropriate departments
-- Transfers context and conversation history
-
-2. **Availability Check**
-- Checks agent availability in real-time
-- Manages queue distribution
-- Handles after-hours routing
-
-3. **Context Preservation**
-- Transfers full conversation history
-- Includes customer details and issue summary
-- Preserves any collected information
-
-### Configuration
+### Example
 
 ```yaml
-transfer_rules:
-  conditions:
-    - type: "complexity"
-      threshold: "high"
-      action: "transfer_to_support"
-    
-    - type: "emotion"
-      threshold: "distressed"
-      action: "transfer_to_priority"
-    
-    - type: "request"
-      match: "speak_to_human"
-      action: "transfer_to_available"
-
-  departments:
-    - name: "Technical Support"
-      available: "business_hours"
-      fallback: "voicemail"
-    
-    - name: "Customer Service"
-      available: "extended_hours"
-      fallback: "callback"
-
-  priorities:
-    - level: "urgent"
-      max_wait: 120
-      escalation: "supervisor"
+name: "Order Status Inquiry"
+description: "Handles order status requests."
+instructions:
+  - "Greet and introduce yourself."
+  - "Ask for order number or email."
+  - "Use Order Management to find the order."
+  - "Present the order status."
+  - "Apologize and offer solutions for delays."
+  - "Thank the customer."
+connectors:
+  - Order Management
+communication_rules:
+  tone: "Friendly and helpful"
+  prohibited_phrases:
+    - "Please hold"
+    - "I'm sorry for the inconvenience" # Use a more sincere apology
 ```
 
-### Best Practices for Transfers
+### Detailed YAML Example
 
-1. **Clear Communication**
-- Inform customer about transfer
-- Explain reason for transfer
-- Set expectations for wait time
+```yaml
+name: "Order Issue"
+description: "Assists customers with order issues."
+instructions:
+  - "Greet as Natalia."
+  - "Ask about the issue."
+  - "If order issue:"
+  - "  a. Use Order Management (number or name)."
+  - "  b. Determine the issue (item, delay)."
+  - "  c. Apologize."
+  - "  d. Offer solution (replacement, refund, expedited shipping)."
+  - "  e. Confirm details for replacements."
+  - "  f. Transfer if unresolved."
+  - "Ask if they need more help."
+  - "Thank them and end."
+connectors:
+  - Order Management
+communication_rules:
+  tone: "Empathetic and professional"
+  prohibited_phrases:
+    - "Please hold"
+    - "I don't know"
+```
 
-2. **Smooth Handoff**
-- Ensure agent availability before transfer
-- Pass complete context
-- Confirm successful transfer
+### YAML Best Practices
 
-3. **Fallback Handling**
-- Define clear fallback procedures
-- Offer alternatives when needed
-- Maintain professional communication
+*   **Indentation:** Use consistent spacing (2 spaces).
+*   **Quotes:** Use quotes for special characters, numbers, booleans.
+*   **Syntax Validation:** Use a YAML validator.
+*   **Modularity:** Break down complex scenarios.
 
-## Best Practices Summary
+### Why YAML?
 
-1. **Always**
-- Verify user identity
-- Confirm understanding
-- Keep responses professional
-- Follow security protocols
-
-2. **Never**
-- Share sensitive information
-- Make unrealistic promises
-- Ignore security protocols
-- Use technical jargon unnecessarily
-
-3. **Remember**
-- Stay within scope
-- Escalate when appropriate
-- Maintain consistent tone
-- Focus on user experience
+*   **Clarity & Structure:** Improves readability.
+*   **Maintainability:** Easier edits and management.
+*   **Version Control:** Track changes effectively.
+*   **Automation:** Enables automation of scenario deployments.
