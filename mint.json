@@ -33,8 +33,32 @@
       "url": "docs"
     }
   ],
-  "navigation": {
-    "tabs": [
+"navigation": [
+    {
+      "tab": "Getting Started",
+      "pages": [
+        {"page":"concepts/quickstart"}
+      ]
+    },
+    {
+      "tab": "Using Natalia",
+      "groups":[
+        {
+          "group": "Scenarios",
+          "pages": [
+            {"page":"using-natalia/scenarios"}
+          ]
+        },
+        {
+          "group": "Connectors",
+          "pages": [
+            {"page": "using-natalia/connectors/rest-api"},
+            {"page": "using-natalia/connectors/call-transfer"}
+          ]
+        }
+      ]
+    }
+  ],
     {
       "group": "Getting Started",
       "pages": [
@@ -44,40 +68,7 @@
     {
       "group": "Using Natalia",
       "pages": [
-        {
-          "group": "Email",
-          "pages": [
-            "using-natalia/email/setup"
-          ]
-        },
-        {
-          "group": "Dashboard",
-          "pages": [
-            "using-natalia/dashboard/overview",
-            "using-natalia/dashboard/scenarios"
-          ]
-        },
-        {
-          "group": "Scenarios",
-          "pages": [
-            "using-natalia/scenarios"
-          ]
-        },
-        {
-          "group": "Connectors",
-          "pages": [
-            "using-natalia/connectors/rest-api",
-            "using-natalia/connectors/call-transfer"
-          ]
-        }
-      ]
-    }
-  ],
-  "footerSocials": {
-    "linkedin": "https://linkedin.com/company/105802460"
-  },
       "footer": {
-        "message": "© 2024 Natalia"
+        "message": "© 2025 Natalia"
       }
     }
-}
