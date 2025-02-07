@@ -1,0 +1,61 @@
+{
+    "$schema": "https://mintlify.com/docs.json",
+    "name": "Natalia Documentation",
+    "logo": {
+      "light": "/logo/light.svg",
+      "dark": "/logo/dark.svg",
+      "href": "/"
+    },
+    "favicon": "/favicon.svg",
+    "colors": {
+      "primary": "#16A34A",
+      "light": "#07C983",
+      "dark": "#15803D",
+      "background": {
+        "dark": "#090909",
+        "light": "#ffffff"
+      }
+    },
+    "topbarLinks": [
+      {
+        "name": "Support",
+        "url": "mailto:support@getnatalia.com"
+      }
+    ],
+    "topbarCtaButton": {
+      "name": "Dashboard",
+      "url": "https://app.getnatalia.com"
+    },
+    "anchors": [
+      {
+        "name": "Documentation",
+        "icon": "book-open",
+        "url": "docs"
+      }
+    ],
+    "navigation": [
+      {
+        "group": "Getting Started",
+        "pages": [
+          "quickstart"
+        ]
+      },
+      {
+        "group": "Using Natalia",
+        "pages": [
+          "using-natalia/scenarios",
+          {
+            "group": "Connectors",
+            "pages": [
+              "using-natalia/connectors/rest-api",
+              "using-natalia/connectors/call-transfer"
+            ]
+          }
+        ]
+      }
+    ],
+    "footerSocials": {
+      "linkedin": "https://linkedin.com/company/natalia-ai"
+    }
+  }
+  
