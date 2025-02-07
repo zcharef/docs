@@ -1,5 +1,8 @@
 {
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
   "name": "Natalia Documentation",
+  "description": "Documentation for Natalia AI, your intelligent customer service assistant",
   "logo": {
     "light": "/logo/light.svg",
     "dark": "/logo/dark.svg",
@@ -14,11 +17,14 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "Docs",
+        "tab": "Documentation",
         "groups": [
           {
             "group": "Getting Started",
-            "pages": ["introduction", "quickstart"]
+            "pages": [
+              "introduction",
+              "quickstart"
+            ]
           },
           {
             "group": "Using Natalia",
@@ -37,21 +43,22 @@
       }
     ]
   },
-  "footerSocials": {
-    "linkedin": "https://linkedin.com/company/natalia-ai"
-  },
-  "feedback": {
-    "suggestEdit": true,
-    "raiseIssue": true
-  },
-  "topbarLinks": [
-    {
-      "name": "Support",
-      "url": "mailto:support@getnatalia.com"
+  "navbar": {
+    "links": [
+      {
+        "label": "Support",
+        "href": "mailto:support@getnatalia.com"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Dashboard",
+      "href": "https://app.getnatalia.com"
     }
-  ],
-  "topbarCtaButton": {
-    "name": "Dashboard",
-    "url": "https://app.getnatalia.com"
+  },
+  "footer": {
+    "socials": {
+      "linkedin": "https://linkedin.com/company/natalia-ai"
+    }
   }
 }
