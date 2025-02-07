@@ -1,24 +1,24 @@
 {
-  "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
   "name": "Natalia Documentation",
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg",
+    "href": "/"
+  },
+  "favicon": "/favicon.svg",
   "colors": {
     "primary": "#16A34A",
     "light": "#07C983",
     "dark": "#15803D"
   },
-  "favicon": "/favicon.svg",
   "navigation": {
     "tabs": [
       {
-        "tab": "Documentation",
+        "tab": "Docs",
         "groups": [
           {
             "group": "Getting Started",
-            "pages": [
-              "introduction",
-              "quickstart"
-            ]
+            "pages": ["quickstart"]
           },
           {
             "group": "Using Natalia",
@@ -37,26 +37,21 @@
       }
     ]
   },
-  "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+  "footerSocials": {
+    "linkedin": "https://linkedin.com/company/natalia-ai"
   },
-  "navbar": {
-    "links": [
-      {
-        "label": "Support",
-        "href": "mailto:support@getnatalia.com"
-      }
-    ],
-    "primary": {
-      "type": "button",
-      "label": "Dashboard",
-      "href": "https://app.getnatalia.com"
-    }
+  "feedback": {
+    "suggestEdit": true,
+    "raiseIssue": true
   },
-  "footer": {
-    "socials": {
-      "linkedin": "https://linkedin.com/company/natalia-ai"
+  "topbarLinks": [
+    {
+      "name": "Support",
+      "url": "mailto:support@getnatalia.com"
     }
+  ],
+  "topbarCtaButton": {
+    "name": "Dashboard",
+    "url": "https://app.getnatalia.com"
   }
 }
