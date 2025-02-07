@@ -13,109 +13,113 @@ The REST API connector allows you to integrate external services with Natalia. E
 - Write clear descriptions - Natalia understands natural language
 - Link connectors to scenarios where they'll be used
 
-The REST API connector allows you to integrate external services and APIs with Natalia. This enables you to send HTTP requests to any endpoint and use the responses in your scenarios.
+## Natural Language Usage
 
-## Configuration
+You can describe how and when Natalia should use the API in plain language. For example:
 
-### Basic Setup
+🇬🇧 English:
+- "When a customer asks about their order status, retrieve it using their order number"
+- "Create a support ticket when the customer has a technical problem"
+- "Look up the customer's information when they provide their email address"
 
-1. Navigate to the Connectors section in your Natalia dashboard
-2. Click "+" to create a new connector
-3. Select "Custom API" as the connector type
-4. Fill in the following information:
-   - Connector name
-   - Description
-   - HTTP method (GET, POST, PUT, PATCH)
-   - API endpoint URL
+🇫🇷 French:
+- "Quand un client demande le statut de sa commande, récupère-le en utilisant son numéro de commande"
+- "Crée un ticket de support quand le client a un problème technique"
+- "Recherche les informations du client quand il fournit son adresse email"
 
-### Request Configuration
+## Configuration in Dashboard
 
-The REST API connector supports:
+### Request Setup
+1. **Name and Description**
+- Give your connector a clear name
+- Provide a detailed description of its purpose
+- Example: "This connector retrieves order status from our system using the order reference number"
 
-1. **HTTP Methods**
-- GET: Retrieve data
-- POST: Create data
-- PUT: Update data
-- PATCH: Partial updates
+2. **API Configuration**
+- Select the HTTP method (GET, POST, PUT, PATCH)
+- Enter the API endpoint URL
+- Configure headers and parameters as needed
 
-2. **Headers**
-- Add custom headers like authorization tokens
-- Set content types
-- Include custom metadata
+3. **Parameters Description**
+Describe parameters in natural language:
 
-3. **Parameters**
-Configure URL parameters and query strings
+🇬🇧 English:
+- "The query is the customer's question or request, like asking about a product or dimensions"
+- "The reference number is the order's unique identifier"
+- "The customer email is used to look up their account"
 
-4. **Body**
-For POST/PUT/PATCH requests, define the request body structure:
-```json
-{
-  "user": {
-    "type": "object",
-    "required": ["name", "email"],
-    "properties": {
-      "name": {
-        "type": "string",
-        "description": "User's name"
-      },
-      "email": {
-        "type": "string",
-        "description": "User's email address"
-      }
-    }
-  },
-  "description": {
-    "type": "string",
-    "description": "Request description"
-  }
-}
+🇫🇷 French:
+- "La requête est la question ou demande du client, comme une question sur un produit ou des dimensions"
+- "Le numéro de référence est l'identifiant unique de la commande"
+- "L'email du client est utilisé pour rechercher son compte"
+
+## Common Use Cases
+
+### Customer Information Lookup
+🇬🇧 "Use this connector when:
+- A customer asks about their account
+- We need to verify customer details
+- Looking up purchase history"
+
+🇫🇷 "Utilise ce connecteur quand :
+- Un client pose des questions sur son compte
+- Nous devons vérifier les détails du client
+- Recherche d'historique d'achats"
+
+### Order Management
+🇬🇧 "Retrieve order information when:
+- Customer asks about order status
+- Tracking information is needed
+- Order details are requested"
+
+🇫🇷 "Récupère les informations de commande quand :
+- Le client demande le statut de sa commande
+- Les informations de suivi sont nécessaires
+- Les détails de la commande sont demandés"
+
+## Pro Prompting
+
+For those who prefer structured data, here's how the configuration looks in YAML format:
+
+```yaml
+api_trigger:
+  type: "order_lookup"
+  conditions:
+    - order_status_requested
+    - tracking_requested
+    - order_details_needed
+  parameters:
+    order_number:
+      type: "string"
+      description: "The order reference number"
+    
+query_conditions:
+  type: "customer_info"
+  parameters:
+    email:
+      type: "string"
+      description: "Customer's email address"
 ```
 
 ## Best Practices
 
-1. **Error Handling**
-- Include error responses in documentation
-- Test with invalid inputs
-- Handle rate limits appropriately
+1. **Clear Descriptions**
+- Use natural language in descriptions
+- Be specific about when to use the connector
+- Describe expected outcomes
 
-2. **Security**
+2. **Testing**
+- Test with various inputs
+- Verify error handling
+- Validate responses
+
+3. **Security**
 - Use environment variables for sensitive data
 - Implement proper authentication
 - Follow least privilege principle
 
-3. **Testing**
-- Test with various data types
-- Verify error scenarios
-- Validate response handling
-
-## Using in Scenarios
-
-Example usage in a scenario:
-```yaml
-- name: "Create Ticket"
-  connector: "ticket-creator"
-  params:
-    user:
-      name: "John Doe"
-      email: "john@example.com"
-    description: "Need assistance with login"
-```
-
-## Troubleshooting
-
-Common issues and solutions:
-
-1. **Connection Errors**
-- Verify endpoint URL
-- Check network connectivity
-- Validate authentication
-
-2. **Invalid Responses**
-- Review request format
-- Check API documentation
-- Validate data types
-
-3. **Performance Issues**
-- Monitor response times
-- Implement caching
-- Consider rate limiting
+## Remember
+- All connector settings are automatically added to Natalia's training
+- No need to manually code the integrations
+- Link connectors to relevant scenarios
+- Test thoroughly before going live
