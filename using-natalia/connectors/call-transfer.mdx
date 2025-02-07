@@ -1,0 +1,142 @@
+---
+title: 'Call Transfer Connector'
+description: 'Learn how to use the call transfer connector to seamlessly hand over conversations to human agents'
+---
+
+## Overview
+
+The call transfer connector enables Natalia to seamlessly transfer calls to human agents when needed, ensuring a smooth transition and preserving conversation context.
+
+## Key Features
+
+### 1. Smart Routing
+- Automatically identifies when human intervention is needed
+- Routes calls to appropriate departments
+- Transfers context and conversation history
+
+### 2. Availability Check
+- Checks agent availability in real-time
+- Manages queue distribution
+- Handles after-hours routing
+
+### 3. Context Preservation
+- Transfers full conversation history
+- Includes customer details and issue summary
+- Preserves any collected information
+
+## Configuration
+
+### Basic Setup
+
+```yaml
+transfer_rules:
+  conditions:
+    - type: "complexity"
+      threshold: "high"
+      action: "transfer_to_support"
+    
+    - type: "emotion"
+      threshold: "distressed"
+      action: "transfer_to_priority"
+    
+    - type: "request"
+      match: "speak_to_human"
+      action: "transfer_to_available"
+
+  departments:
+    - name: "Technical Support"
+      available: "business_hours"
+      fallback: "voicemail"
+    
+    - name: "Customer Service"
+      available: "extended_hours"
+      fallback: "callback"
+
+  priorities:
+    - level: "urgent"
+      max_wait: 120
+      escalation: "supervisor"
+```
+
+## Best Practices
+
+### 1. Clear Communication
+- Inform customer about transfer
+- Explain reason for transfer
+- Set expectations for wait time
+
+### 2. Smooth Handoff
+- Ensure agent availability before transfer
+- Pass complete context
+- Confirm successful transfer
+
+### 3. Fallback Handling
+- Define clear fallback procedures
+- Offer alternatives when needed
+- Maintain professional communication
+
+## Transfer Scenarios
+
+### 1. Complex Issues
+```yaml
+transfer_trigger:
+  type: "complexity"
+  conditions:
+    - multiple_issues
+    - technical_expertise_required
+    - historical_context_needed
+```
+
+### 2. Emotional Support
+```yaml
+transfer_trigger:
+  type: "emotional"
+  conditions:
+    - customer_distress
+    - complaint_escalation
+    - urgent_resolution_needed
+```
+
+### 3. Technical Support
+```yaml
+transfer_trigger:
+  type: "technical"
+  conditions:
+    - system_error
+    - configuration_required
+    - security_related
+```
+
+## Implementation Tips
+
+1. **Set Clear Triggers**
+- Define specific conditions for transfers
+- Avoid unnecessary transfers
+- Document transfer criteria
+
+2. **Maintain Context**
+- Pass all relevant information
+- Include conversation history
+- Note any special requirements
+
+3. **Handle Edge Cases**
+- Plan for off-hours transfers
+- Define escalation paths
+- Prepare backup procedures
+
+## Testing and Optimization
+
+1. **Test Scenarios**
+- Verify transfer conditions
+- Check context preservation
+- Validate fallback procedures
+
+2. **Monitor Performance**
+- Track transfer success rates
+- Measure wait times
+- Analyze customer satisfaction
+
+3. **Continuous Improvement**
+- Gather agent feedback
+- Update transfer criteria
+- Optimize routing rules
