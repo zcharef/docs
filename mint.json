@@ -39,23 +39,22 @@
     ],
     "navigation": [
       {
-        "tab": "Getting Started",
-        "pages": [
-          {"page": "concepts/quickstart", "title": "Quick Start"}
-        ]
+        "group": "Getting Started",
+        "pages": ["concepts/quickstart"]
       },
       {
-        "tab": "Using Natalia",
-        "groups": [
+        "group": "Using Natalia",
+        "pages": [
           {
             "group": "Scenarios",
-            "pages": [
-              {"page": "using-natalia/scenarios"}
-            ]
+            "pages": ["using-natalia/scenarios"]
           },
           {
             "group": "Connectors",
-            "pages": []
+            "pages": [
+              "using-natalia/connectors/rest-api",
+              "using-natalia/connectors/call-transfer"
+            ]
           }
         ]
       }
