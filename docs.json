@@ -4,7 +4,7 @@
   "logo": {
     "light": "/logo/light.svg",
     "dark": "/logo/dark.svg",
-    "href": "/"
+    "href": "/concepts/quickstart"
   },
   "favicon": "/favicon.svg",
   "colors": {
@@ -30,7 +30,7 @@
     {
       "name": "Documentation",
       "icon": "book-open",
-      "url": "/",
+      "url": "/concepts/quickstart",
       "color": {
         "from": "#16A34A",
         "to": "#07C983"
