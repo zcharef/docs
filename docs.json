@@ -59,31 +59,10 @@
       ]
     }
   ],
-    {
-      "group": "Getting Started",
-      "pages": [
-        "quickstart"
-      ]
-    },
-    {
-      "group": "Using Natalia",
-      "pages": [
-        {
-          "group": "Scenarios",
-          "pages": [
-            "using-natalia/scenarios"
-          ]
-        },
-        {
-          "group": "Connectors",
-          "pages": [
-            "using-natalia/connectors/rest-api",
-            "using-natalia/connectors/call-transfer"
-          ]
-        }
-      ]
+      "footer": {
+        "message": "© 2025 Natalia"
+      }
     }
-  ],
   "footer": {
     "message": "© 2025 Natalia"
   }

@@ -55,19 +55,7 @@
             {"page": "using-natalia/connectors/rest-api"},
             {"page": "using-natalia/connectors/call-transfer"}
           ]
-        }
-      ]
-    }
-  ],
-    {
-      "group": "Getting Started",
-      "pages": [
-        "quickstart"
-      ]
-    },
-    {
-      "group": "Using Natalia",
-      "pages": [
+
       "footer": {
         "message": "© 2025 Natalia"
       }
