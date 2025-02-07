@@ -30,14 +30,18 @@
     {
       "name": "Documentation",
       "icon": "book-open",
-      "url": "docs"
+      "url": "/",
+      "color": {
+        "from": "#16A34A",
+        "to": "#07C983"
+      }
     }
   ],
 "navigation": [
     {
       "tab": "Getting Started",
       "pages": [
-        {"page":"concepts/quickstart"}
+        {"page": "concepts/quickstart", "title": "Quick Start"}
       ]
     },
     {
@@ -51,12 +55,16 @@
         },
         {
           "group": "Connectors",
-          "pages": [
-            {"page": "using-natalia/connectors/rest-api"},
-            {"page": "using-natalia/connectors/call-transfer"}
           ]
+        }
+      ]
+    },
 
       "footer": {
         "message": "© 2025 Natalia"
-      }
+      },
+       "footerSocials": {
+          "linkedin": "https://www.linkedin.com/company/natalia-ai/",
+           "website": "https://getnatalia.com"
+       }
     }
