@@ -1,11 +1,40 @@
 ---
-title: 'Creating Effective Natalia Scenarios'
+## Important Notes About Scenarios
+
+### Connector Integration
+- Each scenario needs to be linked with its required connectors
+- Natalia is automatically aware of all connectors linked to a scenario
+- The scenario's description, name, and parameters are automatically added to Natalia's training sheet (main prompt)
+
+### Why Descriptions Matter
+- Write clear, detailed descriptions for your scenarios
+- Be specific about when and how connectors should be used
+- The more detailed your descriptions, the better Natalia understands your intent
+
+## Creating Your First Scenario
 description: 'Learn how to create powerful and effective scenarios for Natalia'
+icon: 'wand-magic-sparkles'
 ---
 
 ## Introduction
 
 Natalia scenarios are the building blocks of your automated customer interactions. This guide will help you create effective scenarios that deliver exceptional customer experiences.
+
+### Automatic Context Extraction
+
+Natalia can automatically analyze your existing customer interactions to build effective scenarios:
+
+1. **Email Analysis**
+- Connect your support email to extract common questions
+- Identify typical response patterns
+- Build response templates based on successful interactions
+
+2. **Call Recording Analysis**
+- Submit sample recordings to support@getnatalia.com
+- AI analysis of common queries and resolutions
+- Automatic scenario generation based on patterns
+
+This automated analysis helps create scenarios that match your company's specific needs and communication style.
 
 ## Best Practices for Scenario Creation
 
@@ -47,27 +76,74 @@ responses:
 
 ### 4. Conversation Flow
 
-Structure your conversation flow:
+Structure your conversation flow based on these principles:
 
 1. **Welcome**
-- Personalized greeting
-- Clear introduction
-- Open-ended initial question
+- Professional, warm greeting
+- Clear self-introduction as Natalia
+- Open question about assistance needed
 
 2. **Qualification**
-- Identify issue type
-- Assess priority
-- Gather essential information
+```yaml
+qualification:
+  steps:
+    - verify_identity:
+        required: ["name", "email"]
+        action: "spell_check"
+    
+    - assess_request:
+        type: ["issue", "inquiry", "service"]
+        priority: ["normal", "urgent", "critical"]
+    
+    - gather_details:
+        max_questions: 2
+        confirm_understanding: true
+```
 
 3. **Action**
-- Clear acknowledgment
-- Specific actions taken
-- Progress updates
+```yaml
+actions:
+  create_ticket:
+    required_fields:
+      - customer_name
+      - email
+      - issue_description
+    confirm: true
+    
+  transfer_call:
+    conditions:
+      - complexity_high
+      - customer_request
+      - technical_issue
+    preserve_context: true
+```
 
 4. **Closure**
-- Confirmation of resolution
-- Next steps if needed
-- Professional goodbye
+```yaml
+closure:
+  verify_satisfaction: true
+  next_steps:
+    - confirm_ticket_creation
+    - explain_follow_up
+    - provide_reference
+  farewell:
+    tone: "professional_warm"
+    include_availability: true
+```
+
+5. **Error Handling**
+```yaml
+error_handling:
+  unclear_request:
+    - clarify_with_examples
+    - max_attempts: 2
+    - transfer_if_failed: true
+    
+  system_error:
+    - apologize
+    - offer_alternative
+    - escalate_to_human
+```
 
 ### 5. Priority Handling
 
@@ -175,6 +251,76 @@ conversation:
 - Regularly review scenarios
 - Update based on user feedback
 - Optimize for common cases
+
+## Call Transfer Connector
+
+The call transfer connector enables Natalia to seamlessly transfer calls to human agents when needed.
+
+### Key Features
+
+1. **Smart Routing**
+- Automatically identifies when human intervention is needed
+- Routes calls to appropriate departments
+- Transfers context and conversation history
+
+2. **Availability Check**
+- Checks agent availability in real-time
+- Manages queue distribution
+- Handles after-hours routing
+
+3. **Context Preservation**
+- Transfers full conversation history
+- Includes customer details and issue summary
+- Preserves any collected information
+
+### Configuration
+
+```yaml
+transfer_rules:
+  conditions:
+    - type: "complexity"
+      threshold: "high"
+      action: "transfer_to_support"
+    
+    - type: "emotion"
+      threshold: "distressed"
+      action: "transfer_to_priority"
+    
+    - type: "request"
+      match: "speak_to_human"
+      action: "transfer_to_available"
+
+  departments:
+    - name: "Technical Support"
+      available: "business_hours"
+      fallback: "voicemail"
+    
+    - name: "Customer Service"
+      available: "extended_hours"
+      fallback: "callback"
+
+  priorities:
+    - level: "urgent"
+      max_wait: 120
+      escalation: "supervisor"
+```
+
+### Best Practices for Transfers
+
+1. **Clear Communication**
+- Inform customer about transfer
+- Explain reason for transfer
+- Set expectations for wait time
+
+2. **Smooth Handoff**
+- Ensure agent availability before transfer
+- Pass complete context
+- Confirm successful transfer
+
+3. **Fallback Handling**
+- Define clear fallback procedures
+- Offer alternatives when needed
+- Maintain professional communication
 
 ## Best Practices Summary
 

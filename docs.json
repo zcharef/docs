@@ -2,12 +2,18 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
   "name": "Natalia Documentation",
+  "description": "Documentation for Natalia AI, your intelligent customer service assistant",
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg",
+    "href": "/"
+  },
+  "favicon": "/favicon.svg",
   "colors": {
     "primary": "#16A34A",
     "light": "#07C983",
     "dark": "#15803D"
   },
-  "favicon": "/favicon.svg",
   "navigation": {
     "tabs": [
       {
@@ -23,17 +29,19 @@
           {
             "group": "Using Natalia",
             "pages": [
-              "using-natalia/rest-api-connector",
-              "using-natalia/scenarios"
+              "using-natalia/scenarios",
+              {
+                "group": "Connectors",
+                "pages": [
+                  "using-natalia/connectors/rest-api",
+                  "using-natalia/connectors/call-transfer"
+                ]
+              }
             ]
           }
         ]
       }
     ]
-  },
-  "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
   },
   "navbar": {
     "links": [
