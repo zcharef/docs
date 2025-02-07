@@ -1,1 +1,113 @@
-[Content from current rest-api-connector.mdx]
+---
+title: 'REST API Connector'
+description: 'Learn how to integrate external services with Natalia using the REST API connector'
+---
+
+## Overview
+
+The REST API connector allows you to integrate external services and APIs with Natalia. This enables you to send HTTP requests to any endpoint and use the responses in your scenarios.
+
+## Configuration
+
+### Basic Setup
+
+1. Navigate to the Connectors section in your Natalia dashboard
+2. Click "+" to create a new connector
+3. Select "Custom API" as the connector type
+4. Fill in the following information:
+   - Connector name
+   - Description
+   - HTTP method (GET, POST, PUT, PATCH)
+   - API endpoint URL
+
+### Request Configuration
+
+The REST API connector supports:
+
+1. **HTTP Methods**
+- GET: Retrieve data
+- POST: Create data
+- PUT: Update data
+- PATCH: Partial updates
+
+2. **Headers**
+- Add custom headers like authorization tokens
+- Set content types
+- Include custom metadata
+
+3. **Parameters**
+Configure URL parameters and query strings
+
+4. **Body**
+For POST/PUT/PATCH requests, define the request body structure:
+```json
+{
+  "user": {
+    "type": "object",
+    "required": ["name", "email"],
+    "properties": {
+      "name": {
+        "type": "string",
+        "description": "User's name"
+      },
+      "email": {
+        "type": "string",
+        "description": "User's email address"
+      }
+    }
+  },
+  "description": {
+    "type": "string",
+    "description": "Request description"
+  }
+}
+```
+
+## Best Practices
+
+1. **Error Handling**
+- Include error responses in documentation
+- Test with invalid inputs
+- Handle rate limits appropriately
+
+2. **Security**
+- Use environment variables for sensitive data
+- Implement proper authentication
+- Follow least privilege principle
+
+3. **Testing**
+- Test with various data types
+- Verify error scenarios
+- Validate response handling
+
+## Using in Scenarios
+
+Example usage in a scenario:
+```yaml
+- name: "Create Ticket"
+  connector: "ticket-creator"
+  params:
+    user:
+      name: "John Doe"
+      email: "john@example.com"
+    description: "Need assistance with login"
+```
+
+## Troubleshooting
+
+Common issues and solutions:
+
+1. **Connection Errors**
+- Verify endpoint URL
+- Check network connectivity
+- Validate authentication
+
+2. **Invalid Responses**
+- Review request format
+- Check API documentation
+- Validate data types
+
+3. **Performance Issues**
+- Monitor response times
+- Implement caching
+- Consider rate limiting

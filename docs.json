@@ -23,8 +23,14 @@
           {
             "group": "Using Natalia",
             "pages": [
-              "using-natalia/rest-api-connector",
-              "using-natalia/scenarios"
+              "using-natalia/scenarios",
+              {
+                "group": "Connectors",
+                "pages": [
+                  "using-natalia/connectors/rest-api",
+                  "using-natalia/connectors/call-transfer"
+                ]
+              }
             ]
           }
         ]
