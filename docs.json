@@ -36,29 +36,42 @@
         "to": "#07C983"
       }
     }
-  ],
+  ]
   "navigation": [
     {
-      "group": "Getting Started",
-      "pages": ["concepts/quickstart"]
+      "tab": "Getting Started",
+      "pages": [
+        {"page": "concepts/quickstart", "title": "Quick Start"}
+      ]
     },
     {
-      "group": "Using Natalia",
-      "pages": [
+      "tab": "Using Natalia",
+      "groups": [
         {
           "group": "Scenarios",
-          "pages": ["using-natalia/scenarios"]
+          "pages": [
+            {"page": "using-natalia/scenarios", "title": "Scenarios"}
+          ]
         },
         {
           "group": "Connectors",
           "pages": [
-            "using-natalia/connectors/rest-api",
-            "using-natalia/connectors/call-transfer"
+            {"page": "using-natalia/connectors/rest-api", "title": "REST API"},
+            {"page": "using-natalia/connectors/call-transfer", "title": "Call Transfer"}
           ]
         }
       ]
     }
   ],
+
+      "footer": {
+        "message": "© 2025 Natalia"
+      },
+       "footerSocials": {
+          "linkedin": "https://www.linkedin.com/company/natalia-ai/",
+           "website": "https://getnatalia.com"
+       }
+    }
   "footer": {
     "message": "© 2025 Natalia"
   },
