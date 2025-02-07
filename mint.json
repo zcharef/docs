@@ -1,70 +1,70 @@
 {
-  "$schema": "https://mintlify.com/docs.json",
-  "name": "Natalia Documentation",
-  "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg",
-    "href": "/"
-  },
-  "favicon": "/favicon.svg",
-  "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D",
-    "background": {
-      "dark": "#090909",
-      "light": "#ffffff"
-    }
-  },
-  "topbarLinks": [
-    {
-      "name": "Support",
-      "url": "mailto:support@getnatalia.com"
-    }
-  ],
-  "topbarCtaButton": {
-    "name": "Dashboard",
-    "url": "https://app.getnatalia.com"
-  },
-  "anchors": [
-    {
-      "name": "Documentation",
-      "icon": "book-open",
-      "url": "/",
-      "color": {
-        "from": "#16A34A",
-        "to": "#07C983"
+    "$schema": "https://mintlify.com/docs.json",
+    "name": "Natalia Documentation",
+    "logo": {
+      "light": "/logo/light.svg",
+      "dark": "/logo/dark.svg",
+      "href": "/"
+    },
+    "favicon": "/favicon.svg",
+    "colors": {
+      "primary": "#16A34A",
+      "light": "#07C983",
+      "dark": "#15803D",
+      "background": {
+        "dark": "#090909",
+        "light": "#ffffff"
       }
-    }
-  ],
-"navigation": [
-    {
-      "tab": "Getting Started",
-      "pages": [
-        {"page": "concepts/quickstart", "title": "Quick Start"}
-      ]
     },
-    {
-      "tab": "Using Natalia",
-      "groups":[
-        {
-          "group": "Scenarios",
-          "pages": [
-            {"page":"using-natalia/scenarios"}
-          ]
-        },
-        {
-          "group": "Connectors",
-          ]
+    "topbarLinks": [
+      {
+        "name": "Support",
+        "url": "mailto:support@getnatalia.com"
+      }
+    ],
+    "topbarCtaButton": {
+      "name": "Dashboard",
+      "url": "https://app.getnatalia.com"
+    },
+    "anchors": [
+      {
+        "name": "Documentation",
+        "icon": "book-open",
+        "url": "/",
+        "color": {
+          "from": "#16A34A",
+          "to": "#07C983"
         }
-      ]
-    },
-
-      "footer": {
-        "message": "© 2025 Natalia"
+      }
+    ],
+    "navigation": [
+      {
+        "tab": "Getting Started",
+        "pages": [
+          {"page": "concepts/quickstart", "title": "Quick Start"}
+        ]
       },
-       "footerSocials": {
-          "linkedin": "https://www.linkedin.com/company/natalia-ai/",
-           "website": "https://getnatalia.com"
-       }
+      {
+        "tab": "Using Natalia",
+        "groups": [
+          {
+            "group": "Scenarios",
+            "pages": [
+              {"page": "using-natalia/scenarios"}
+            ]
+          },
+          {
+            "group": "Connectors",
+            "pages": []
+          }
+        ]
+      }
+    ],
+    "footer": {
+      "message": "© 2025 Natalia"
+    },
+    "footerSocials": {
+      "linkedin": "https://www.linkedin.com/company/natalia-ai/",
+      "website": "https://getnatalia.com"
     }
+  }

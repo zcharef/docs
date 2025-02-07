@@ -63,18 +63,11 @@
       ]
     }
   ],
-      "footer": {
-        "message": "© 2025 Natalia"
-      "footer": {
-        "message": "© 2025 Natalia"
-      },
-       "footerSocials": {
-          "linkedin": "https://www.linkedin.com/company/natalia-ai/",
-           "website": "https://getnatalia.com"
-       }
-    }
-
-      "footer": {
-        "message": "© 2025 Natalia"
-      }
-    }
+  "footer": {
+    "message": "© 2025 Natalia"
+  },
+  "footerSocials": {
+    "linkedin": "https://www.linkedin.com/company/natalia-ai/",
+    "website": "https://getnatalia.com"
+  }
+}
