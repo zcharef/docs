@@ -6,24 +6,23 @@ icon: 'wand-magic-sparkles'
 
 ## Introduction
 
-Natalia scenarios are the building blocks of your automated customer interactions. This guide will help you create effective scenarios that deliver exceptional customer experiences.  Everything you configure in a scenario becomes part of Natalia's training, including the scenario description, name, selected connectors, and communication rules.
+Natalia scenarios are the building blocks of your automated customer interactions. This guide will help you create effective scenarios that deliver exceptional customer experiences. Everything you configure in a scenario becomes part of Natalia's training, including the scenario description, name, selected connectors, and communication rules.
 
 ### Automatic Context Extraction
 
 Natalia can automatically analyze your existing customer interactions to build effective scenarios:
 
-1. **Email Analysis**
-- Connect your support email to extract common questions
-- Identify typical response patterns
-- Build response templates based on successful interactions
+1. **Email Analysis** (Coming soon)
+   - Connect your support email to extract common questions
+   - Identify typical response patterns
+   - Build response templates based on successful interactions
 
 2. **Call Recording Analysis**
-- Submit sample recordings to support@getnatalia.com
-- AI analysis of common queries and resolutions
-- Automatic scenario generation based on patterns
+   - Submit sample recordings to support@getnatalia.com
+   - AI analysis of common queries and resolutions
+   - Automatic scenario generation based on patterns
 
 This automated analysis helps create scenarios that match your company's specific needs and communication style.
-
 
 ## Creating a New Scenario
 
@@ -44,10 +43,9 @@ This automated analysis helps create scenarios that match your company's specifi
   </Step>
 </Steps>
 
-
 ## Writing Effective Descriptions
 
-Your scenario descriptions are crucial - they directly influence how Natalia behaves. Write them in natural language, just as you would explain to a human colleague.  Be specific and clear about the purpose of the scenario, the expected interactions, and the desired outcomes. The description you provide is automatically added to Natalia's training.
+Your scenario descriptions are crucial - they directly influence how Natalia behaves. Write them in natural language, just as you would explain to a human colleague. Be specific and clear about the purpose of the scenario, the expected interactions, and the desired outcomes. The description you provide is automatically added to Natalia's training.
 
 <CardGroup>
   <Card title="Be Clear and Specific" icon="pen">
@@ -86,7 +84,6 @@ Your scenario descriptions are crucial - they directly influence how Natalia beh
   </Card>
 </CardGroup>
 
-
 ## Writing Instructions
 
 You can write instructions in natural language. For example:
@@ -111,9 +108,13 @@ Quand un client appelle :
 5. Terminez toujours en confirmant la satisfaction du client
 ```
 
-## Linking Connectors
+## Linking Connectors and Phone Numbers
 
-Connectors bridge Natalia with external tools and data, empowering her to access information, perform actions, and enhance customer interactions. Important: Don't forget to link relevant connectors to your scenario. Natalia will automatically understand how to use any connected tools based on their configurations.
+A scenario is linked to a specific phone number. When setting up a scenario, you will select which phone number it should be associated with. This means that Natalia will use the chosen scenario to handle all calls coming to that particular number. Choose your scenarios carefully based on the purpose of each phone number.
+
+Phone numbers can't be automatically ordered yet. To obtain a new phone number or if you have any questions, please contact us at support@getnatalia.com. We'll be happy to assist you.
+
+Connectors enhance Natalia's capabilities by providing access to external tools and data. Important: Don't forget to link relevant connectors to your scenario. Natalia will automatically understand how to use any connected tools based on their configurations.
 
 <Steps>
   <Step title="Access Connectors">
@@ -128,24 +129,23 @@ Connectors bridge Natalia with external tools and data, empowering her to access
   </Step>
   
   <Step title="Configure">
-    Set up each connector's specific settings.  Tell Natalia *when* to use each connector in natural language.  Explain *why* and *how* each connector contributes to the scenario.
+    Set up each connector's specific settings. Tell Natalia *when* to use each connector in natural language. Explain *why* and *how* each connector contributes to the scenario.
   </Step>
 </Steps>
 
 ## Key Principles for Connector Integration
 
-*   **Relevance:** Choose connectors aligned with the scenario's goal.
-*   **Configuration:** Ensure connectors are set up correctly with credentials and settings.
-*   **Clear Instructions:** Tell Natalia *when* to use each connector in natural language.
-*   **Thorough Testing:** Validate connector functionality within the scenario.
-*   **Purposeful Descriptions:** Explain *why* and *how* each connector contributes to the scenario.
-
+* **Relevance:** Choose connectors aligned with the scenario's goal.
+* **Configuration:** Ensure connectors are set up correctly with credentials and settings.
+* **Clear Instructions:** Tell Natalia *when* to use each connector in natural language.
+* **Thorough Testing:** Validate connector functionality within the scenario.
+* **Purposeful Descriptions:** Explain *why* and *how* each connector contributes to the scenario.
 
 ## Examples of Connector Integration within Scenarios
 
 ### Order Management
 
-```
+```text
 1. Greet the customer as Natalia.
 2. Ask for their order number or email.
 3. Use the **Order Management connector** to find the order.
@@ -156,7 +156,7 @@ Connectors bridge Natalia with external tools and data, empowering her to access
 
 ### Product Catalog
 
-```
+```text
 1. Greet the customer.
 2. Ask for the product name or SKU.
 3. Use the **Product Catalog connector** to find the product.
@@ -167,7 +167,7 @@ Connectors bridge Natalia with external tools and data, empowering her to access
 
 ### Knowledge Base
 
-```
+```text
 1. Greet the customer.
 2. Ask for a description of the technical issue.
 3. Use the **Knowledge Base connector** to search for solutions.
@@ -177,7 +177,7 @@ Connectors bridge Natalia with external tools and data, empowering her to access
 
 ### French Example - Gestion des Commandes
 
-```
+```text
 1. Saluez le client en tant que Natalia.
 2. Demandez le numéro de commande ou l'email.
 3. Utilisez le **connecteur Gestion des Commandes** pour trouver la commande.
@@ -189,7 +189,6 @@ Connectors bridge Natalia with external tools and data, empowering her to access
 <Note>
 Link all necessary connectors *before* activating your scenario.
 </Note>
-
 
 ## Testing Your Scenario
 
@@ -206,76 +205,3 @@ Link all necessary connectors *before* activating your scenario.
     Once verified, deploy to production
   </Step>
 </Steps>
-
-
-## Advanced Prompting (YAML)
-
-YAML offers advanced control over scenario structure. For complex interactions, YAML's precision and readability are beneficial.
-
-### Key Principles
-
-*   **YAML Syntax:**  Understand indentation, key-value pairs, and lists.
-*   **Key Elements:** Define `name`, `description`, `instructions`, and `connectors`.
-*   **Comments:** Explain each section and instruction.
-*   **Thorough Testing:** Validate YAML scenarios.
-
-### Example
-
-```yaml
-name: "Order Status Inquiry"
-description: "Handles order status requests."
-instructions:
-  - "Greet and introduce yourself."
-  - "Ask for order number or email."
-  - "Use Order Management to find the order."
-  - "Present the order status."
-  - "Apologize and offer solutions for delays."
-  - "Thank the customer."
-connectors:
-  - Order Management
-communication_rules:
-  tone: "Friendly and helpful"
-  prohibited_phrases:
-    - "Please hold"
-    - "I'm sorry for the inconvenience" # Use a more sincere apology
-```
-
-### Detailed YAML Example
-
-```yaml
-name: "Order Issue"
-description: "Assists customers with order issues."
-instructions:
-  - "Greet as Natalia."
-  - "Ask about the issue."
-  - "If order issue:"
-  - "  a. Use Order Management (number or name)."
-  - "  b. Determine the issue (item, delay)."
-  - "  c. Apologize."
-  - "  d. Offer solution (replacement, refund, expedited shipping)."
-  - "  e. Confirm details for replacements."
-  - "  f. Transfer if unresolved."
-  - "Ask if they need more help."
-  - "Thank them and end."
-connectors:
-  - Order Management
-communication_rules:
-  tone: "Empathetic and professional"
-  prohibited_phrases:
-    - "Please hold"
-    - "I don't know"
-```
-
-### YAML Best Practices
-
-*   **Indentation:** Use consistent spacing (2 spaces).
-*   **Quotes:** Use quotes for special characters, numbers, booleans.
-*   **Syntax Validation:** Use a YAML validator.
-*   **Modularity:** Break down complex scenarios.
-
-### Why YAML?
-
-*   **Clarity & Structure:** Improves readability.
-*   **Maintainability:** Easier edits and management.
-*   **Version Control:** Track changes effectively.
-*   **Automation:** Enables automation of scenario deployments.

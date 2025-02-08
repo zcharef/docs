@@ -8,126 +8,98 @@ icon: 'phone'
 
 The call transfer connector helps Natalia transfer calls to human agents when needed. It's designed to be simple to set up while providing flexible routing options.
 
-## Important Note
+## Configuration in Dashboard
 
-All configuration settings you define here will be automatically added to Natalia's training sheet (main prompt). This means Natalia will naturally understand when and how to transfer calls based on your settings.
+### Basic Setup
+1. **Phone Numbers**
+  - Follow format: +XXXNUMBER (e.g., +33612345678)
+  - Add transfer destinations
+  - Define names and roles
 
-## Setting Up Transfers
+2. **Transfer Rules**
+  - Set routing conditions
+  - Define priority levels
+  - Configure availability schedules (Coming soon)
 
-### Basic Configuration
+### Transfer Types
+- Direct to specific agent
+- Team/department routing
+- Skill-based routing
+- Fallback options
 
-Simply add your transfer destinations in the dashboard:
+## Using in [Scenarios](/dashboard/scenarios/introduction)
 
-<CardGroup>
-  <Card title="Phone Number Format" icon="phone">
-    Must follow the strict format: +XXXNUMBER
-    Example: +33612345678
-  </Card>
-  <Card title="Description" icon="text">
-    Can be anything - names, roles, or keywords:
-    - "Alice - Main Support"
-    - "Technical Team"
-    - "Human Agent"
-  </Card>
-</CardGroup>
+All connector details—names, descriptions, and parameters—are automatically incorporated into Natalia’s training and scenario logic. Because of this, you don’t need to explicitly mention the connector name or its parameters in your scenario's training sheet. However, it is important to be as detailed as possible when configuring each connector so Natalia knows exactly when and how to use it.
 
-### Natural Language Instructions
 
-You can instruct Natalia when to transfer calls using natural language. For example:
+### Natural Language Usage
+
+You can describe transfer conditions in plain language:
 
 🇬🇧 English:
-- "Transfer the call to Alice when customers specifically ask for her"
-- "Transfer to a human agent when the customer seems frustrated or upset"
-- "Transfer to technical support for complex technical issues"
+Transfer the call when:
+1. Customer explicitly requests human agent
+2. Issue requires technical expertise
+3. Situation is emotionally charged
+4. Complex problem needs investigation
 
 🇫🇷 French:
-- "Transférer l'appel à Alice quand les clients la demandent spécifiquement"
-- "Transférer vers un agent humain quand le client semble frustré ou contrarié"
-- "Transférer au support technique pour les problèmes techniques complexes"
+Transférer l'appel quand :
+1. Le client demande explicitement un agent humain
+2. Le problème nécessite une expertise technique
+3. La situation est émotionnellement chargée
+4. Un problème complexe nécessite une investigation
+### Scenario Examples
 
-## Common Transfer Scenarios
+#### Customer Service Escalation
 
-### Emotional Support
-🇬🇧 "Transfer the call to a human agent when the customer:
-- Shows signs of emotional distress
-- Is escalating a complaint
-- Needs urgent assistance
-- Explicitly asks for human support"
+🇬🇧 "Transfer to supervisor when:
 
-🇫🇷 "Transférer l'appel à un agent humain quand le client :
-- Montre des signes de détresse émotionnelle
-- Est en train d'escalader une plainte
-- Nécessite une assistance urgente
-- Demande explicitement un support humain"
+* Customer expresses dissatisfaction with solution
+* Previous resolution attempts failed
+* Complaint needs immediate attention
+* Policy exception is requested"
 
-### Technical Issues
-🇬🇧 "Transfer to technical support when:
-- The issue requires technical expertise
-- The problem is too complex for automated handling
-- Multiple technical issues are involved"
+🇫🇷 "Transférer au superviseur quand :
 
-🇫🇷 "Transférer au support technique quand :
-- Le problème nécessite une expertise technique
-- La situation est trop complexe pour un traitement automatisé
-- Plusieurs problèmes techniques sont impliqués"
+* Le client exprime son insatisfaction avec la solution
+* Les tentatives précédentes de résolution ont échoué
+* Une plainte nécessite une attention immédiate
+* Une exception à la politique est demandée"
 
-### Customer Preference
-🇬🇧 "Transfer the call when:
-- The customer asks for a specific agent by name
-- They request to speak with a supervisor
-- They express preference for human assistance"
+#### Technical Support Routing
 
-🇫🇷 "Transférer l'appel quand :
-- Le client demande un agent spécifique par son nom
-- Ils demandent à parler à un superviseur
-- Ils expriment une préférence pour une assistance humaine"
+🇬🇧 "Transfer to technical team for:
 
-## Pro Prompting
+* Complex system errors
+* Configuration issues
+* Integration problems
+* Security concerns"
 
-For those who prefer structured prompting, here are the equivalent YAML formats:
+🇫🇷 "Transférer à l'équipe technique pour :
 
-```yaml
-# Emotional Support
-transfer_trigger:
-  type: "emotional"
-  conditions:
-    - customer_distress
-    - complaint_escalation
-    - urgent_resolution_needed
-    - human_support_requested
-
-# Technical Issues
-transfer_trigger:
-  type: "complexity"
-  conditions:
-    - technical_expertise_required
-    - complex_problem
-    - multiple_technical_issues
-
-# Customer Preference
-transfer_trigger:
-  type: "request"
-  conditions:
-    - specific_agent_requested
-    - supervisor_requested
-    - human_assistance_preferred
-```
+* Erreurs système complexes
+* Problèmes de configuration
+* Problèmes d'intégration
+* Questions de sécurité"
 
 ## Best Practices
 
-### For Clear Communication
-- Inform customers when they're being transferred
-- Explain why a transfer is happening
-- Set expectations about wait times
-
-### For Smooth Handoffs
-- Verify agent availability before transfer
-- Ensure context is preserved
-- Confirm successful transfers
+1. **Clear Communication**
+   * Inform customer about transfer
+   * Explain transfer reason
+   * Set wait time expectations
+2. **Smooth Handoffs**
+   * Check agent availability
+   * Preserve conversation context
+   * Confirm successful transfer
+3. **Quality Assurance**
+   * Monitor transfer success rates
+   * Track customer satisfaction
+   * Review transfer patterns
 
 ## Remember
 
-- All configurations are automatically added to Natalia's training
-- Be descriptive in your settings - Natalia understands natural language
-- Don't forget to link the connector to your scenarios
-- Test your transfer flows before going live
+* All settings automatically join Natalia's training
+* Use natural language in descriptions
+* Test transfer flows thoroughly
