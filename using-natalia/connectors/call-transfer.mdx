@@ -82,39 +82,6 @@ You can instruct Natalia when to transfer calls using natural language. For exam
 - Ils demandent à parler à un superviseur
 - Ils expriment une préférence pour une assistance humaine"
 
-<!--
-## Pro Prompting
-
-For those who prefer structured prompting, here are the equivalent YAML formats:
-
-```yaml
-# Emotional Support
-transfer_trigger:
-  type: "emotional"
-  conditions:
-    - customer_distress
-    - complaint_escalation
-    - urgent_resolution_needed
-    - human_support_requested
-
-# Technical Issues
-transfer_trigger:
-  type: "complexity"
-  conditions:
-    - technical_expertise_required
-    - complex_problem
-    - multiple_technical_issues
-
-# Customer Preference
-transfer_trigger:
-  type: "request"
-  conditions:
-    - specific_agent_requested
-    - supervisor_requested
-    - human_assistance_preferred
-```
--->
-
 ## Best Practices
 
 ### For Clear Communication
@@ -128,7 +95,6 @@ transfer_trigger:
 - Confirm successful transfers
 
 ## Remember
-
 - All configurations are automatically added to Natalia's training
 - Be descriptive in your settings - Natalia understands natural language
 - Don't forget to link the connector to your scenarios

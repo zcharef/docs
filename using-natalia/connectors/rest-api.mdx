@@ -27,55 +27,53 @@ You can describe how and when Natalia should use the API in plain language. For 
 - "Crée un ticket de support quand le client a un problème technique"
 - "Recherche les informations du client quand il fournit son adresse email"
 
+## Configuration in Dashboard
 
-## Configuration in Dashboard and via YAML
-
-### Request Setup in Dashboard
+### Request Setup
 1. **Name and Description**
-- Give your connector a clear name
-- Provide a detailed description of its purpose
-- Example: "This connector retrieves order status from our system using the order reference number"
+   - Give your connector a clear name
+   - Provide a detailed description of its purpose
+   - Example: "This connector retrieves order status from our system using the order reference number"
 
 2. **API Configuration**
-- Select the HTTP method (GET, POST, PUT, PATCH)
-- Enter the API endpoint URL
-- Configure headers and parameters as needed
+   - Select the HTTP method (GET, POST, PUT, PATCH)
+   - Enter the API endpoint URL
+   - Configure headers and parameters as needed
 
 3. **Parameters Description**
-Describe parameters in natural language:
+   Describe parameters in natural language:
 
-🇬🇧 English:
-- "The query is the customer's question or request, like asking about a product or dimensions"
-- "The reference number is the order's unique identifier"
-- "The customer email is used to look up their account"
+   🇬🇧 English:
+   - "The query is the customer's question or request, like asking about a product or dimensions"
+   - "The reference number is the order's unique identifier"
+   - "The customer email is used to look up their account"
 
-🇫🇷 French:
-- "La requête est la question ou demande du client, comme une question sur un produit ou des dimensions"
-- "Le numéro de référence est l'identifiant unique de la commande"
-- "L'email du client est utilisé pour rechercher son compte"
+   🇫🇷 French:
+   - "La requête est la question ou demande du client, comme une question sur un produit ou des dimensions"
+   - "Le numéro de référence est l'identifiant unique de la commande"
+   - "L'email du client est utilisé pour rechercher son compte"
 
-
-### Request Configuration Details (applicable to both Dashboard and YAML)
+### Request Configuration Details
 
 The REST API connector supports various request configurations:
 
 1. **HTTP Methods**
-- GET: Retrieve data
-- POST: Create data
-- PUT: Update data
-- PATCH: Partial updates
+   - GET: Retrieve data
+   - POST: Create data
+   - PUT: Update data
+   - PATCH: Partial updates
 
 2. **Headers**
-Add custom headers like authorization tokens or content types.
+   Add custom headers like authorization tokens or content types.
 
 3. **Parameters**
-Configure URL parameters and query strings.
+   Configure URL parameters and query strings.
 
 4. **Body**
-For POST/PUT/PATCH requests, define the request body structure:
-- Support for string, number, object, and array types
-- Nested object structures
-- Arrays of items
+   For POST/PUT/PATCH requests, define the request body structure:
+   - Support for string, number, object, and array types
+   - Nested object structures
+   - Arrays of items
 
 #### Body Structure Example (JSON)
 
@@ -129,100 +127,68 @@ For POST/PUT/PATCH requests, define the request body structure:
 - Les informations de suivi sont nécessaires
 - Les détails de la commande sont demandés"
 
-<!--
-## Pro Prompting with YAML
-
-For structured data representation, use YAML:
-
-```yaml
-api_trigger:
-  type: "order_lookup"
-  conditions:
-    - order_status_requested
-    - tracking_requested
-    - order_details_needed
-  parameters:
-    order_number:
-      type: "string"
-      description: "The order reference number"
-    
-query_conditions:
-  type: "customer_info"
-  parameters:
-    email:
-      type: "string"
-      description: "Customer's email address"
-```
--->
-
 ## Best Practices
 
 1. **Clear Descriptions**
-- Use natural language in descriptions
-- Be specific about when to use the connector
-- Describe expected outcomes
+   - Use natural language in descriptions
+   - Be specific about when to use the connector
+   - Describe expected outcomes
 
 2. **Testing**
-- Test with various inputs
-- Verify error handling
-- Validate responses
+   - Test with various inputs
+   - Verify error handling
+   - Validate responses
 
 3. **Security**
-- Use environment variables for sensitive data
-- Implement proper authentication
-- Follow least privilege principle
+   - Use environment variables for sensitive data
+   - Implement proper authentication
+   - Follow least privilege principle
 
 4. **Error Handling**
-- Always include error responses in your API documentation
-- Test your connector with invalid inputs
-- Handle rate limits appropriately
+   - Always include error responses in your API documentation
+   - Test your connector with invalid inputs
+   - Handle rate limits appropriately
 
 5. **Documentation**
-- Document the purpose of each field
-- Include example requests and responses
-- Note any dependencies or prerequisites
-
+   - Document the purpose of each field
+   - Include example requests and responses
+   - Note any dependencies or prerequisites
 
 ## Using in Scenarios
 
-Once configured, you can use the REST API connector in your Natalia scenarios:
+All connector details—names, descriptions, and parameters—are automatically incorporated into Natalia’s training and scenario logic. Because of this, you don’t need to explicitly mention the connector name or its parameters in your scenario prompts. However, it is important to be as detailed as possible when configuring each connector so Natalia knows exactly when and how to use it.
 
-1. Reference the connector by its name
-2. Pass required parameters
-3. Handle responses appropriately
-4. Implement error checking
+### Handling Connector Responses
 
-Example usage in a scenario (YAML):
-```yaml
-- name: "Create Ticket"
-  connector: "ticket-creator"
-  params:
-    user:
-      name: "John Doe"
-      email: "john@example.com"
-    description: "Need assistance with login"
-```
+You can define how Natalia should respond based on the connector’s returned status codes. For example:
+
+* **HTTP 200 (Success)**
+  * 🇬🇧 “Your request has been received. We’ll take care of it right away.”
+  * 🇫🇷 « Votre demande a bien été reçue. Nous allons nous en occuper immédiatement. »
+* **HTTP 500 (Server Error)**
+  * 🇬🇧 “An unexpected error occurred. [transfer the user to a human agent]”
+  * 🇫🇷 « Une erreur inattendue s’est produite. [transfère l'utilisateur à un agent humain]  »
+
+Because Natalia automatically understands how to invoke connectors and interpret responses, you only need to specify these outcome instructions (success, error handling, escalation, etc.) within your scenario logic. If you do have scenarios that depend on multiple connectors (e.g., a call-transfer connector to handle escalations), make sure each connector is well documented so Natalia knows when and how to chain them together."
 
 ## Troubleshooting
 
 Common issues and solutions:
 
 1. **Connection Errors**
-- Verify endpoint URL is correct
-- Check network connectivity
-- Validate authentication credentials
+   - Verify endpoint URL is correct
+   - Check network connectivity
+   - Validate authentication credentials
 
 2. **Invalid Responses**
-- Review request format
-- Check API documentation
-- Validate data types
+   - Review request format
+   - Check API documentation
+   - Validate data types
 
 3. **Performance Issues**
-- Monitor response times
-- Implement caching where appropriate
-- Consider rate limiting
-
-
+   - Monitor response times
+   - Implement caching where appropriate
+   - Consider rate limiting
 
 ## Remember
 - All connector settings are automatically added to Natalia's training
