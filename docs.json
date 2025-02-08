@@ -1,69 +1,67 @@
 {
   "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
   "name": "Natalia Documentation",
   "logo": {
     "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg",
-    "href": "/quickstart"
+    "dark": "/logo/dark.svg"
   },
   "favicon": "/favicon.svg",
   "colors": {
     "primary": "#16A34A",
     "light": "#07C983",
-    "dark": "#15803D",
-    "background": {
-      "dark": "#090909",
-      "light": "#ffffff"
-    }
+    "dark": "#15803D"
   },
-  "topbarLinks": [
-    {
-      "name": "Support",
-      "url": "mailto:support@getnatalia.com"
-    }
-  ],
-  "topbarCtaButton": {
-    "name": "Dashboard",
-    "url": "https://app.getnatalia.com"
-  },
-  "anchors": [
-    {
-      "name": "Documentation",
-      "icon": "book-open",
-      "url": "/quickstart",
-      "color": {
-        "from": "#16A34A",
-        "to": "#07C983"
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Guides",
+        "groups": [
+          {
+            "group": "Getting Started",
+            "pages": ["quickstart"]
+          },
+          {
+            "group": "Using Natalia",
+            "pages": ["using-natalia/scenarios"]
+          },
+          {
+            "group": "Connectors",
+            "pages": [
+              "using-natalia/connectors/rest-api",
+              "using-natalia/connectors/call-transfer"
+            ]
+          }
+        ]
       }
-    }
-  ],
-  "navigation": [
-    {
-      "group": "Getting Started",
-      "pages": ["quickstart"]
-    },
-    {
-      "group": "Using Natalia",
-      "pages": [
+    ],
+    "global": {
+      "anchors": [
         {
-          "group": "Scenarios",
-          "pages": ["using-natalia/scenarios"]
-        },
-        {
-          "group": "Connectors",
-          "pages": [
-            "using-natalia/connectors/rest-api",
-            "using-natalia/connectors/call-transfer"
-          ]
+          "anchor": "Documentation",
+          "href": "https://docs.getnatalia.com/quickstart",
+          "icon": "book-open-cover"
         }
       ]
     }
-  ],
-  "footer": {
-    "message": "© 2025 Natalia"
   },
-  "footerSocials": {
-    "linkedin": "https://www.linkedin.com/company/natalia-ai/",
-    "website": "https://getnatalia.com"
+  "navbar": {
+    "links": [
+      {
+        "label": "Support",
+        "href": "mailto:support@getnatalia.com"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Dashboard",
+      "href": "https://app.getnatalia.com"
+    }
+  },
+  "footer": {
+    "socials": {
+      "linkedin": "https://www.linkedin.com/company/natalia-ai/",
+      "website": "https://getnatalia.com"
+    }
   }
 }
