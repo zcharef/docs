@@ -4,7 +4,7 @@
   "logo": {
     "light": "/logo/light.svg",
     "dark": "/logo/dark.svg",
-    "href": "/concepts/quickstart"
+    "href": "/quickstart"
   },
   "favicon": "/favicon.svg",
   "colors": {
