@@ -13,20 +13,6 @@ The REST API connector allows you to integrate external services and APIs with N
 - Write clear descriptions - Natalia understands natural language
 - Link connectors to scenarios where they'll be used
 
-## Natural Language Usage
-
-You can describe how and when Natalia should use the API in plain language. For example:
-
-🇬🇧 English:
-- "When a customer asks about their order status, retrieve it using their order number"
-- "Create a support ticket when the customer has a technical problem"
-- "Look up the customer's information when they provide their email address"
-
-🇫🇷 French:
-- "Quand un client demande le statut de sa commande, récupère-le en utilisant son numéro de commande"
-- "Crée un ticket de support quand le client a un problème technique"
-- "Recherche les informations du client quand il fournit son adresse email"
-
 ## Configuration in Dashboard
 
 ### Request Setup
@@ -103,30 +89,6 @@ The REST API connector supports various request configurations:
 }
 ```
 
-## Common Use Cases
-
-### Customer Information Lookup
-🇬🇧 "Use this connector when:
-- A customer asks about their account
-- We need to verify customer details
-- Looking up purchase history"
-
-🇫🇷 "Utilise ce connecteur quand :
-- Un client pose des questions sur son compte
-- Nous devons vérifier les détails du client
-- Recherche d'historique d'achats"
-
-### Order Management
-🇬🇧 "Retrieve order information when:
-- Customer asks about order status
-- Tracking information is needed
-- Order details are requested"
-
-🇫🇷 "Récupère les informations de commande quand :
-- Le client demande le statut de sa commande
-- Les informations de suivi sont nécessaires
-- Les détails de la commande sont demandés"
-
 ## Best Practices
 
 1. **Clear Descriptions**
@@ -154,9 +116,46 @@ The REST API connector supports various request configurations:
    - Include example requests and responses
    - Note any dependencies or prerequisites
 
-## Using in Scenarios
+## Using in [Scenarios](/dashboard/scenarios/introduction)
 
-All connector details—names, descriptions, and parameters—are automatically incorporated into Natalia’s training and scenario logic. Because of this, you don’t need to explicitly mention the connector name or its parameters in your scenario prompts. However, it is important to be as detailed as possible when configuring each connector so Natalia knows exactly when and how to use it.
+All connector details—names, descriptions, and parameters—are automatically incorporated into Natalia’s training and scenario logic. Because of this, you don’t need to explicitly mention the connector name or its parameters in your scenario's training sheet. However, it is important to be as detailed as possible when configuring each connector so Natalia knows exactly when and how to use it.
+
+
+### Natural Language Usage
+
+You can describe how and when Natalia should use the API in plain language. For example:
+
+🇬🇧 English:
+- "When a customer asks about their order status, retrieve it using their order number"
+- "Create a support ticket when the customer has a technical problem"
+- "Look up the customer's information when they provide their email address"
+
+🇫🇷 French:
+- "Quand un client demande le statut de sa commande, récupère-le en utilisant son numéro de commande"
+- "Crée un ticket de support quand le client a un problème technique"
+- "Recherche les informations du client quand il fournit son adresse email"
+
+### Customer Information Lookup
+🇬🇧 "Use this connector when:
+- A customer asks about their account
+- We need to verify customer details
+- Looking up purchase history"
+
+🇫🇷 "Utilise ce connecteur quand :
+- Un client pose des questions sur son compte
+- Nous devons vérifier les détails du client
+- Recherche d'historique d'achats"
+
+### Order Management
+🇬🇧 "Retrieve order information when:
+- Customer asks about order status
+- Tracking information is needed
+- Order details are requested"
+
+🇫🇷 "Récupère les informations de commande quand :
+- Le client demande le statut de sa commande
+- Les informations de suivi sont nécessaires
+- Les détails de la commande sont demandés"
 
 ### Handling Connector Responses
 
@@ -192,6 +191,5 @@ Common issues and solutions:
 
 ## Remember
 - All connector settings are automatically added to Natalia's training
-- No need to manually code the integrations
 - Link connectors to relevant scenarios
 - Test thoroughly before going live
