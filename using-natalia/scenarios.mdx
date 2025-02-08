@@ -12,7 +12,7 @@ Natalia scenarios are the building blocks of your automated customer interaction
 
 Natalia can automatically analyze your existing customer interactions to build effective scenarios:
 
-1. **Email Analysis**
+1. **Email Analysis** <Badge variant="subtle" size="sm">Coming soon</Badge>
 - Connect your support email to extract common questions
 - Identify typical response patterns
 - Build response templates based on successful interactions
@@ -111,9 +111,13 @@ Quand un client appelle :
 5. Terminez toujours en confirmant la satisfaction du client
 ```
 
-## Linking Connectors
+## Linking Connectors and Phone Numbers
 
-Connectors bridge Natalia with external tools and data, empowering her to access information, perform actions, and enhance customer interactions. Important: Don't forget to link relevant connectors to your scenario. Natalia will automatically understand how to use any connected tools based on their configurations.
+A scenario is linked to a specific phone number.  When setting up a scenario, you will select which phone number it should be associated with. This means that Natalia will use the chosen scenario to handle all calls coming to that particular number. Choose your scenarios carefully based on the purpose of each phone number.
+
+Phone numbers can't be automatically ordered yet. To obtain a new phone number or if you have any questions, please contact us at support@getnatalia.com. We'll be happy to assist you.
+
+Connectors enhance Natalia's capabilities by providing access to external tools and data. Important: Don't forget to link relevant connectors to your scenario. Natalia will automatically understand how to use any connected tools based on their configurations.
 
 <Steps>
   <Step title="Access Connectors">
@@ -208,6 +212,7 @@ Link all necessary connectors *before* activating your scenario.
 </Steps>
 
 
+<!--
 ## Advanced Prompting (YAML)
 
 YAML offers advanced control over scenario structure. For complex interactions, YAML's precision and readability are beneficial.
@@ -279,3 +284,4 @@ communication_rules:
 *   **Maintainability:** Easier edits and management.
 *   **Version Control:** Track changes effectively.
 *   **Automation:** Enables automation of scenario deployments.
+-->
