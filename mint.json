@@ -30,7 +30,7 @@
       {
         "name": "Documentation",
         "icon": "book-open",
-        "url": "/concepts/quickstart",
+        "url": "/quickstart",
         "color": {
           "from": "#16A34A",
           "to": "#07C983"
@@ -40,7 +40,7 @@
     "navigation": [
       {
         "group": "Getting Started",
-        "pages": ["concepts/quickstart"]
+        "pages": ["quickstart"]
       },
       {
         "group": "Using Natalia",
