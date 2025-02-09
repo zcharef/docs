@@ -58,8 +58,20 @@ The REST API connector supports various request configurations:
 4. **Body**
    For POST/PUT/PATCH requests, define the request body structure:
    - Support for string, number, object, and array types
-   - Nested object structures
+   - Nested object structures (including deeply nested objects)
    - Arrays of items
+
+#### Auto-fill and Fixed Values
+
+For each field in the request body and parameters, you can choose between two modes:
+
+*   **Auto-fill (default):** Natalia will automatically generate the value for this field based on the context and the field's description.
+*   **Fixed Value:** You can specify a fixed value that will always be used for this field, regardless of the context. This is useful for fields that should always have the same value, such as API keys (in headers), action types, or filter operators.
+
+To configure this, you can use the `autoFill` and `value` properties in the JSON schema:
+
+*   `autoFill`: A boolean value. Set to `true` to enable auto-fill (default), or `false` to use a fixed value.
+*   `value`:  If `autoFill` is set to `false`, this property specifies the fixed value to use.
 
 #### Body Structure Example (JSON)
 
@@ -74,20 +86,62 @@ The REST API connector supports various request configurations:
     "properties": {
       "name": {
         "type": "string",
-        "description": "User's name"
+        "description": "User's name",
+        "x-autoFill": true
       },
       "email": {
         "type": "string",
-        "description": "User's email address"
+        "description": "User's email address",
+        "x-autoFill": true
+      },
+       "status": {
+        "type": "string",
+        "description": "User status",
+        "x-autoFill": false,
+        "x-value": "active"
       }
     }
   },
   "description": {
     "type": "string",
-    "description": "Request description"
-  }
+    "description": "Request description",
+     "x-autoFill": true
+  },
+   "deeplyNestedObject": {
+        "type": "object",
+        "properties": {
+            "level1": {
+                "type": "object",
+                "properties": {
+                    "level2": {
+                        "type": "object",
+                        "properties": {
+                            "fixedValue": {
+                                "type": "string",
+                                "x-autoFill": false,
+                                "x-value": "constant"
+                            },
+                            "dynamicValue": {
+                                 "type": "string",
+                                "x-autoFill": true,
+                                "description": "A dynamically generated value"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 ```
+
+This example demonstrates how to use `autoFill` and `value` to control whether a field is automatically filled by Natalia or uses a predefined value.  It also includes an example of a deeply nested object.  You can use this same approach for URL parameters as well. For example:
+
+```
+/?search={'filter':[{'op':'eq','field':'mobilePhone','value':"0659487132"}]}
+```
+
+Could be configured with 'op' and 'field' having `"x-autoFill": false` and their respective fixed `value`, and 'value' within the filter having `"x-autoFill": true`, allowing Natalia to dynamically populate the phone number.
 
 ## Best Practices
 
