@@ -19,7 +19,7 @@ The REST API connector allows you to integrate external services and APIs with N
 1. **Name and Description**
    - Give your connector a clear name
    - Provide a detailed description of its purpose
-   - Example: "This connector retrieves order status from our system using the order reference number"
+   - Example: "Retrieve user's order status using the order reference number"
 
 2. **API Configuration**
    - Select the HTTP method (GET, POST, PUT, PATCH)
@@ -138,7 +138,7 @@ To configure this, you can use the `autoFill` and `value` properties in the JSON
 This example demonstrates how to use `autoFill` and `value` to control whether a field is automatically filled by Natalia or uses a predefined value.  It also includes an example of a deeply nested object.  You can use this same approach for URL parameters as well. For example:
 
 ```
-/?search={'filter':[{'op':'eq','field':'mobilePhone','value':"0659487132"}]}
+/?search={'filter':[{'op':'eq','field':'mobilePhone','value':"06112233442"}]}
 ```
 
 Could be configured with 'op' and 'field' having `"x-autoFill": false` and their respective fixed `value`, and 'value' within the filter having `"x-autoFill": true`, allowing Natalia to dynamically populate the phone number.

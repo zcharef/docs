@@ -6,100 +6,129 @@ icon: 'phone'
 
 ## Overview
 
-The call transfer connector helps Natalia transfer calls to human agents when needed. It's designed to be simple to set up while providing flexible routing options.
+The **Call Transfer Connector** helps Natalia seamlessly transfer calls to human agents when needed. It’s simple to set up and supports flexible phone number mappings based on **keywords** you define. Everything you configure here becomes part of Natalia’s training sheet (main prompt), allowing her to naturally understand when and how to use these transfers.
+
+### Important Notes
+- All call transfer settings are automatically added to Natalia's training.
+- Provide clear keywords and descriptions—Natalia understands natural language.
+- You do **not** need to reference the connector name or parameters in your scenario’s training sheet.
+- Thoroughly test your transfer flows to ensure customers reach the correct destination.
 
 ## Configuration in Dashboard
 
 ### Basic Setup
-1. **Phone Numbers**
-  - Follow format: +XXXNUMBER (e.g., +33612345678)
-  - Add transfer destinations
-  - Define names and roles
 
-2. **Transfer Rules**
-  - Set routing conditions
-  - Define priority levels
-  - Configure availability schedules (Coming soon)
+1. **Name and Description**
+    - Give your connector a clear name (e.g., “call-transfer”).
+    - Provide a detailed description of when and why this connector should be used (e.g., “Transfer to different services if the customer asks for a specific one or to the default human agent”).
 
-### Transfer Types
-- Direct to specific agent
-- Team/department routing
-- Skill-based routing
-- Fallback options
+2. **Phone Number**
+    - Use the international format: `+XXXNUMBER` (e.g., **+33612345678**).
+    - You can set up multiple transfer destinations, each with its own descriptive keywords.
+
+3. **Keywords**
+    - Provide short keywords or phrases that should trigger a transfer.
+    - Examples (English/French): “Human agent - Support - Jean Dupont - Besoin d’un humain - Transfert urgent"
+    - Whenever the user’s request matches one of these keywords (or if Natalia decides it’s a question she can’t handle), the call will be transferred to the specified number.
+
+#### Configuration Steps (Example Workflow)
+1. **Go to Connectors**
+Visit [https://app.getnatalia.com/connectors/](https://app.getnatalia.com/connectors/) in your Natalia dashboard and click **New Connector**.
+
+2. **Choose Connector Type**
+In the **Type** dropdown, select **Transfer**.
+
+3. **Fill in Transfer Details**
+    - **Phone Number**: enter the target phone number (e.g., `+33251435858`).
+    - **Description**: add keywords (e.g., “Human Agent,” “Jean Dupont,” “Support”) that will trigger this transfer.
+
+4. **Save Your Connector**
+Once saved, Natalia automatically uses this connector whenever the user explicitly requests a transfer or if the situation requires escalation.
+
+### Transfer Triggers
+
+You can describe how and when Natalia should trigger a call transfer in plain language:
+
+- 🇬🇧 **English**
+“Transfer the call if the customer requests a human agent or if the question appears outside Natalia’s scope.”
+
+-  🇫🇷 **French**
+“Transférer l’appel si le client demande un agent humain ou si la question dépasse le domaine de compétence de Natalia.”
+
+### Scenario Examples
+
+1. **Customer Service Escalation**
+    - 🇬🇧 **English:** Transfer to a human whenever the customer is dissatisfied or explicitly asks for a person.
+    - 🇫🇷 **French:** Transférer vers un agent humain lorsque le client exprime son insatisfaction ou demande explicitement à parler à quelqu’un.
+
+2. **Technical Support Routing**
+    - 🇬🇧 **English:** Transfer to the support line if the customer says: “I need support” or “This is too technical.”
+*Note: This requires “Support” as a keyword for that phone number.*
+    - 🇫🇷 **French:** Transférer à la ligne de support si le client dit : “J’ai besoin d’assistance” ou “C’est trop technique.”
+*Note : Cela nécessite d’avoir défini “Support” comme mot-clé dans la description de votre connecteur.*
+
+[//]: # (## Best Practices)
+
+[//]: # ()
+[//]: # (1. **Clear Communication**)
+
+[//]: # (    - Inform the customer about the transfer and the reason.)
+
+[//]: # (    - Provide any wait-time or hold expectations.)
+
+[//]: # ()
+[//]: # (2. **Smooth Handoffs**)
+
+[//]: # (    - Ensure an agent is available to take the call.)
+
+[//]: # (    - Preserve context: let the agent know what has been discussed so far.)
+
+[//]: # (    - Confirm the transfer was successful.)
+
+[//]: # ()
+[//]: # (3. **Quality Assurance**)
+
+[//]: # (    - Monitor how often transfers occur.)
+
+[//]: # (    - Track customer satisfaction &#40;CSAT&#41; before and after transfers.)
+
+[//]: # (    - Review patterns to refine your keywords or descriptions.)
 
 ## Using in [Scenarios](/dashboard/scenarios/introduction)
 
-All connector details—names, descriptions, and parameters—are automatically incorporated into Natalia’s training and scenario logic. Because of this, you don’t need to explicitly mention the connector name or its parameters in your scenario's training sheet. However, it is important to be as detailed as possible when configuring each connector so Natalia knows exactly when and how to use it.
-
+All connector details—names, descriptions, and parameters—are automatically incorporated into Natalia’s training and scenario logic. Because of this, you do **not** need to explicitly mention the connector name or its parameters in your scenario’s training sheet. However, be as **detailed as possible** when configuring each connector so Natalia knows exactly when and how to use it.
 
 ### Natural Language Usage
 
-You can describe transfer conditions in plain language:
+You can specify in your [scenario](https://docs.getnatalia.com/dashboard/scenarios/introduction) instructions how and when to escalate calls. For example:
 
-🇬🇧 English:
-Transfer the call when:
-1. Customer explicitly requests human agent
-2. Issue requires technical expertise
-3. Situation is emotionally charged
-4. Complex problem needs investigation
+- 🇬🇧 **English:**
+    - “If the user says they need a human or complains about the support, transfer the call.”
+    - “Escalate to a human if the customer asks for advanced help or is extremely dissatisfied.”
 
-🇫🇷 French:
-Transférer l'appel quand :
-1. Le client demande explicitement un agent humain
-2. Le problème nécessite une expertise technique
-3. La situation est émotionnellement chargée
-4. Un problème complexe nécessite une investigation
-### Scenario Examples
+- 🇫🇷 **French:**
+    - “Si l’utilisateur demande un humain ou se plaint du support, transfère l’appel.”
+    - “Escalader vers un humain si le client demande de l’aide avancée ou est très insatisfait.”
 
-#### Customer Service Escalation
+## Troubleshooting
 
-🇬🇧 "Transfer to supervisor when:
+Common issues and solutions:
 
-* Customer expresses dissatisfaction with solution
-* Previous resolution attempts failed
-* Complaint needs immediate attention
-* Policy exception is requested"
+1. **No Transfer Happening**
+    - Verify that your keywords are properly set in the connector’s **Description**.
+    - Check that you’re using the correct international phone format.
 
-🇫🇷 "Transférer au superviseur quand :
+2. **Incorrect Number**
+    - Confirm the target number is typed correctly (including country code).
+    - Test calling the number directly to ensure it’s valid.
 
-* Le client exprime son insatisfaction avec la solution
-* Les tentatives précédentes de résolution ont échoué
-* Une plainte nécessite une attention immédiate
-* Une exception à la politique est demandée"
-
-#### Technical Support Routing
-
-🇬🇧 "Transfer to technical team for:
-
-* Complex system errors
-* Configuration issues
-* Integration problems
-* Security concerns"
-
-🇫🇷 "Transférer à l'équipe technique pour :
-
-* Erreurs système complexes
-* Problèmes de configuration
-* Problèmes d'intégration
-* Questions de sécurité"
-
-## Best Practices
-
-1. **Clear Communication**
-   * Inform customer about transfer
-   * Explain transfer reason
-   * Set wait time expectations
-2. **Smooth Handoffs**
-   * Check agent availability
-   * Preserve conversation context
-   * Confirm successful transfer
-3. **Quality Assurance**
-   * Monitor transfer success rates
-   * Track customer satisfaction
-   * Review transfer patterns
+3. **Misfires or Frequent Unneeded Transfers**
+    - Review and adjust your keywords—overly broad or ambiguous keywords can cause unintended transfers.
+    - Make sure Natalia’s scenario instructions correctly describe when to escalate.
 
 ## Remember
 
-* All settings automatically join Natalia's training
-* Use natural language in descriptions
-* Test transfer flows thoroughly
+- All call transfer descriptions (keywords...) automatically become part of Natalia’s training.
+- Thoroughly document **why** and **when** to transfer calls in your scenario.
+- Test your transfers to confirm they reach the right agent or department.
+- Reinforce when and how to use transfers in your scenario instructions to avoid unintended transfers.
