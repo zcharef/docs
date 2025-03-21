@@ -19,7 +19,7 @@
         "groups": [
           {
             "group": "Getting Started",
-            "pages": ["quickstart"]
+            "pages": ["quickstart", "using-natalia/faq"]
           },
           {
             "group": "Dashboard",
